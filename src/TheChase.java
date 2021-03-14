@@ -1,6 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package the.chase;
+
 /**
  *
- * @author julia
+ * @authors
+ * Abby - 
+ * Julia - 19078503
+ * Matt - 
  */
 public class TheChase {
 
