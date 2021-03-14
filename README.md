@@ -3,5 +3,3 @@
 #### COMP603
 
 ---
-
-This is some template text
