@@ -22,4 +22,5 @@ public class AsciiArt {
 
 	}
 
+	System.out.printlm("Something in here");
 }
