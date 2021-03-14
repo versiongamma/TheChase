@@ -1,1 +1,6 @@
-# COMP603-TheChase
+# Program Design and Construction - Assignment One
+## The Chase
+#### COMP603
+
+---
+
