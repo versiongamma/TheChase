@@ -5,11 +5,11 @@ public class AsciiArt {
 		System.out.println("____________________________");
 		System.out.println("|                          |");
 		System.out.println("|__________________________|");
-		System.out.println(" |                        |");
+		System.out.println(" |       High Offer       |");
 		System.out.println(" |________________________|");
-		System.out.println("  |                      |");
+		System.out.println("  |      Chase Cash      |");
 		System.out.println("  |______________________|");
-		System.out.println("   |                    |");
+		System.out.println("   |      Low Offer     |");
 		System.out.println("   |____________________|");
 		System.out.println("    |                  |");
 		System.out.println("    |__________________|");
@@ -22,5 +22,5 @@ public class AsciiArt {
 
 	}
 
-	System.out.printlm("Something in here");
+	
 }
