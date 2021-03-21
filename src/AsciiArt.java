@@ -12,23 +12,23 @@ public class AsciiArt {
     }
 
     public void questionBoard() {
-        System.out.println("____________________________");
-        System.out.println("|                          |");
-        System.out.println("|__________________________|");
-        System.out.println(" |       $" + this.highOffer + "       |");
-        System.out.println(" |________________________|");
-        System.out.println("  |      $" + this.round1Cash + "      |");
-        System.out.println("  |______________________|");
-        System.out.println("   |      $" + this.lowOffer + "     |");
-        System.out.println("   |____________________|");
-        System.out.println("    |                  |");
-        System.out.println("    |__________________|");
-        System.out.println("     |                |");
-        System.out.println("     |________________|");
-        System.out.println("      |              |");
-        System.out.println("      |______________|");
-        System.out.println("       |            |");
-        System.out.println("       |____________|");
+        System.out.println("_______________________________");
+        System.out.println("|                             |");
+        System.out.println("|_____________________________|");
+        System.out.println(" | $" + this.highOffer + "   |");
+        System.out.println(" |___________________________|");
+        System.out.println("  |$" + this.round1Cash + " |");
+        System.out.println("  |_________________________|");
+        System.out.println("   |$" + this.lowOffer + " |");
+        System.out.println("   |_______________________|");
+        System.out.println("    |                     |");
+        System.out.println("    |_____________________|");
+        System.out.println("     |                   |");
+        System.out.println("     |___________________|");
+        System.out.println("      |                 |");
+        System.out.println("      |_________________|");
+        System.out.println("       |               |");
+        System.out.println("       |_______________|");
 
     }
 

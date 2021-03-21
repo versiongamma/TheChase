@@ -9,5 +9,42 @@
  * @author julia
  */
 public class Scores {
+
+    /**
+     * @return the chaserScore
+     */
+    public int getChaserScore() {
+        return chaserScore;
+    }
+
+    /**
+     * @param chaserScore the chaserScore to set
+     */
+    public void setChaserScore(int chaserScore) {
+        this.chaserScore = chaserScore;
+    }
+
+    /**
+     * @return the playerScore
+     */
+    public int getPlayerScore() {
+        return playerScore;
+    }
+
+    /**
+     * @param playerScore the playerScore to set
+     */
+    public void setPlayerScore(int playerScore) {
+        this.playerScore = playerScore;
+    }
+    private int chaserScore;
+    private int playerScore;
     
+    public int updateChaserScore(){
+        return 0;
+    }
+    
+    public int updatePlayerScore(){
+        return 0;
+    }
 }
