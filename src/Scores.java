@@ -10,33 +10,6 @@
  */
 public class Scores {
 
-    /**
-     * @return the chaserScore
-     */
-    public int getChaserScore() {
-        return chaserScore;
-    }
-
-    /**
-     * @param chaserScore the chaserScore to set
-     */
-    public void setChaserScore(int chaserScore) {
-        this.chaserScore = chaserScore;
-    }
-
-    /**
-     * @return the playerScore
-     */
-    public int getPlayerScore() {
-        return playerScore;
-    }
-
-    /**
-     * @param playerScore the playerScore to set
-     */
-    public void setPlayerScore(int playerScore) {
-        this.playerScore = playerScore;
-    }
     private int chaserScore;
     private int playerScore;
     
@@ -46,5 +19,22 @@ public class Scores {
     
     public int updatePlayerScore(){
         return 0;
+    }
+    
+    //GETTERS AND SETTERS
+    public int getChaserScore() {
+        return chaserScore;
+    }
+
+    public void setChaserScore(int chaserScore) {
+        this.chaserScore = chaserScore;
+    }
+
+    public int getPlayerScore() {
+        return playerScore;
+    }
+
+    public void setPlayerScore(int playerScore) {
+        this.playerScore = playerScore;
     }
 }
