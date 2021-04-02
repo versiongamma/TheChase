@@ -1,3 +1,7 @@
+
+import java.io.IOException;
+import java.util.Scanner;
+
 /**
  *
  * @authors
@@ -17,6 +21,40 @@ public class TheChase {
         System.out.println("|  Welcome to The Chase! |");
         System.out.println("|________________________|");
         
+=======
+        System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+");
+	System.out.println("|            Welcome to              |");
+	System.out.println("|               the                  |");
+	System.out.println("|              Chase!                |");
+	System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n");
+        
+        Scanner scan = new Scanner(System.in);
+        
+        int selection;
+        
+        do{
+            System.out.println("Please Choose an Option: \n"
+                    + "1. Play The Chase \n"
+                    + "2. How to Play \n"
+                    + "3. Exit");
+            selection = scan.nextInt();
+            
+            switch (selection) {
+                case 1:
+                    //game starts
+                    break;
+                case 2:
+                    System.out.println("Game instructions: \n"
+                            + "");
+                    break;
+                case 3:
+                    System.out.println("Goodbye!");
+                    System.exit(0);
+                    break;
+                default:
+                    throw new IndexOutOfBoundsException();
+            }
+            
+        }while(selection == 1);
     }
-    
 }
