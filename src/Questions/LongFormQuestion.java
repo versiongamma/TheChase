@@ -5,43 +5,49 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class LongFormQuestion extends Question{
+public class LongFormQuestion extends Question {
 
     private int id;
     private String question;
-    private String[] answers;
-    private String userAnswer;
+    private String answer;
     
+    @Override
     public boolean checkAnswer(String answer) {
         return false;
     }
 
     /**
-     * 
+     *
      */
     public LongFormQuestion() throws FileNotFoundException, IOException {
-     try{
-        StringTokenizer st;
-        FileReader fr = new FileReader("./data/long-form-questions.csv");
-        BufferedReader br = new BufferedReader(fr);
-        String line;
-     
-     while((line = br.readLine())!=null){
-         st = new StringTokenizer(line, ",");
-         System.out.println(st.nextToken());
-     }
-     }catch(FileNotFoundException e){
-         System.out.println("File Not Found");
-     }
-    }
-    
+        try {
+            
+            StringTokenizer st;
+            BufferedReader readIn = new BufferedReader(new FileReader("./data/long-form-questions.csv"));
+            String line;
 
-    
-     @Override
+            while ((line = readIn.readLine()) != null) {
+                st = new StringTokenizer(line, ",");
+                id = new Random().nextInt(st.countTokens() - 2);
+                
+               // StringTokenizer longFormQuestion = new StringTokenizer(readIn.nextToken(), ",")
+                if (st.nextToken().contains(Integer.toString(id))){
+                    question = st.nextToken();
+                    //answer = 
+                }
+                
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File Not Found");
+        } catch (IOException e) {
+            System.out.println("Error reading file");
+        }
+    }
+
+    @Override
     public String toString() {
-        return String.format("%s\n\t1", question, userAnswer);
+        return String.format("%s", question);
     }
 }
