@@ -1,14 +1,11 @@
 
 import Questions.LongFormQuestion;
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import Questions.MultiChoiceQuestion;
+import java.awt.Toolkit;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.util.StringTokenizer;
+import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -18,31 +15,73 @@ import java.util.StringTokenizer;
  */
 
 public class RoundOne {
-
-    //code goes in here
-    //I have found a way to make the timer work as well
     
-    public void showQuestions(){
-        RoundOne r = new RoundOne();
-       
-       for(int i = 0; i <10; i++){
-           print questions here
-           System.out.println(new LongFormQuestion());
-           
-           //print writer then buffer reader
-           
-           if(LongFormQuestion == false){
-               System.out.println("Incorrect Answer!"
-                       + "The Answer was: ");
-               
-           }
-           else if(LongFormQuestion == true){
-               System.out.println("Correct!");
-               r.getPlayerScore()++;
-           }
-           
-           i--;
-       }
+    private static String playerAnswer;
+    
+    public RoundOne(String playerAnswer){
+        RoundOne.playerAnswer = playerAnswer;
     }
+    
+    public static void printQuestion() throws IOException{
+        try{
+         System.out.println(new LongFormQuestion());
+        }catch(IOException e){
+            System.out.println("Unable to read in question.");
+        }
+    }
+    
+    //checks the answer entered by the player
+    public static void checkAnswer(String playerAnswer) throws IOException{
+       
+        //need to call in the answer string from the csv file
+        if(playerAnswer == m){
+            System.out.println("Incorrect Answer!"
+                       + "The Answer was: ");
+            //next question
+           }
+        else if(playerAnswer == m){
+           System.out.println("Correct!");
+           // getPlayerScore()++;
+           //next question
+           }
+    }
+    
+    //interal timer stuff
+    Toolkit toolkit;
+
+    Timer timer;
+
+    public RoundOne(int seconds) {
+        toolkit = Toolkit.getDefaultToolkit();
+        timer = new Timer();
+        timer.schedule(new timeOut(), seconds * 1000);
+    }
+
+    //calls the timer to end
+    class timeOut extends TimerTask {
+
+        public void run() {
+            System.out.println("Time's up!");
+            toolkit.beep();
+            timer.cancel();
+        }
+    }
+
+    //sets and prints the timer and questions
+    public static void main(String args[]) throws IOException {
+        System.out.println("Answer as many questions as you can in 1 minute! \n"
+                + "Timer starting;");
+        new RoundOne(60);
+        System.out.println("Go!");
+        
+        Scanner scan = new Scanner(System.in);
+        //infinite method for printing questions, will end with the timer
+        for(int i = 0; i < 10; i++){
+            printQuestion();
+            playerAnswer = scan.next();
+            checkAnswer(playerAnswer);
+        }
+    }
+    
 }
    

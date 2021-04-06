@@ -1,6 +1,6 @@
+
 import Questions.LongFormQuestion;
 import Questions.MultiChoiceQuestion;
-import Questions.Question;
 import java.io.IOException;
 
 /**
@@ -17,9 +17,11 @@ public class TheChase {
         // TODO code application logic here
         System.out.println(new MultiChoiceQuestion());
         
-        System.out.println("\n NEWLINE \n");
+        System.out.println("\n");
         
         System.out.println(new LongFormQuestion());
     }
+    
+    
     
 }
