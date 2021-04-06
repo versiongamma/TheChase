@@ -1,5 +1,6 @@
 
 
+import Questions.MultiChoiceQuestion;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -17,7 +18,7 @@ public class Round2 {
 
     private final int MONEYROUND1;
     private Board board;
-    private ArrayList<MultiChoiceQuestion> questions;
+    private ArrayList<Questions.MultiChoiceQuestion> questions;
     private int moneyRound2;
 
     /**
@@ -28,7 +29,7 @@ public class Round2 {
     Round2(int moneyRound1) {
         this.MONEYROUND1 = moneyRound1;
         this.board = new Board(this.highOffer(), this.lowOffer(), this.MONEYROUND1);
-        this.questions = new ArrayList<MultiChoiceQuestion>();
+        this.questions = new ArrayList<Questions.MultiChoiceQuestion>();
         this.moneyRound2 = 0;
     }
     
@@ -144,7 +145,7 @@ public class Round2 {
             while ((line = inStream.readLine()) != null) {
                 StringTokenizer st = new StringTokenizer(line, "*");
                 while (st.hasMoreTokens()) {
-                    MultiChoiceQuestion temp = new MultiChoiceQuestion(st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken());
+                    Questions.MultiChoiceQuestion temp = new Questions.MultiChoiceQuestion(st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken());
                     this.questions.add(temp);
                 }
             }

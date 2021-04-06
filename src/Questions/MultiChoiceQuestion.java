@@ -1,46 +1,75 @@
 package Questions;
 
-import netscape.javascript.JSObject;
 
-import java.io.FileReader;
-import java.util.Random;
-import java.util.StringTokenizer;
 
-/** Object for a single multi choice question, containing its list of answers
+/**
+ *
+ * @author abbyl
  */
-public class MultiChoiceQuestion extends Question {
-    private String question, answer;
-    private String[] answers;
-    private int id;
-
-    public boolean checkAnswer(String answer) {
-        return false;
-    }
-
-    /** Constructor which generates a random question from the available list of questions
+public class MultiChoiceQuestion{
+    private final String QUESTION;
+    private final String A;
+    private final String B;
+    private final String C;
+    private final String ANSWER;
+    
+    /**
+     * Constructor for MultiChoiceQuestion object.
+     * 
+     * @param question the questions itself
+     * @param a        answer a
+     * @param b        answer b
+     * @param c        answer c
+     * @param answer   the letter of the correct answer (a, b, or c)
      */
-    public MultiChoiceQuestion() {
-
-        StringTokenizer line = getLines("./data/multi-choice-questions.csv");
-        id = new Random().nextInt(line.countTokens() - 2);
-        while (line.hasMoreTokens()) {
-
-            // Get each value on the current line
-            StringTokenizer dbQuestion = new StringTokenizer(line.nextToken(), ",");
-
-            // Update the object's values if the id value on the current line matches the object's id
-            if (dbQuestion.nextToken().contains(Integer.toString(id))) {
-                question = dbQuestion.nextToken();
-                answers = new String[]{dbQuestion.nextToken(), dbQuestion.nextToken(), dbQuestion.nextToken()};
-                answer = answers[Integer.parseInt(dbQuestion.nextToken().replace("\r", ""))];
-                // Final token will contain a return carriage character that needs to be stripped to parse it as an int
-            }
+    public MultiChoiceQuestion(String question, String a, String b, String c, String answer){
+        this.QUESTION = question;
+        this.A = a;
+        this.B = b;
+        this.C = c;
+        this.ANSWER = answer;
+    }
+    
+    /**
+     * Returns if the chaser's and/or player's answer is correct or not for
+     * each question. Returns a different number depending for both correct, just 
+     * player correct, just chaser correct, neither correct, and incorrect input.
+     * 
+     * @param playerAnswer the answer the player entered
+     * @param chaserAnswer the answer the player entered
+     * @return             returns 1 for both correct, 2 for just player, 3 for 
+     *                     just chaser, 0 for neither, and 4 for an incorrect input
+     */
+    public int checkAnswer(String playerAnswer, String chaserAnswer){
+        if((!playerAnswer.equalsIgnoreCase("A") && !playerAnswer.equalsIgnoreCase("B") 
+                && !playerAnswer.equalsIgnoreCase("C")) || (!chaserAnswer.equalsIgnoreCase("A") 
+                && !chaserAnswer.equalsIgnoreCase("B") && !chaserAnswer.equalsIgnoreCase("C"))){
+            
+            System.out.println("Please enter A, B, or C as your answer.");
+            return 4;
+        }
+        else if(playerAnswer.equalsIgnoreCase(ANSWER) && chaserAnswer.equalsIgnoreCase(ANSWER)){
+            return 1;
+        }
+        else if(playerAnswer.equalsIgnoreCase(ANSWER) && !chaserAnswer.equalsIgnoreCase(ANSWER)){
+            return 2;
+        }
+        else if(!playerAnswer.equalsIgnoreCase(ANSWER) && chaserAnswer.equalsIgnoreCase(ANSWER)){
+            return 3;
+        }
+        else{
+            return 0;
         }
     }
-
+    
+    /**
+     * Overrides the toString method to return the question as a string that is 
+     * readable for the user.
+     * 
+     * @return the readable string
+     */
     @Override
-    public String toString() {
-        return String.format("%s\n\t1. %s\n\t2. %s\n\t3. %s", question, answers[0], answers[1], answers[2]);
+    public String toString(){
+        return this.QUESTION +"\n"+this.A+"\n"+this.B+"\n"+this.C;
     }
-
 }
