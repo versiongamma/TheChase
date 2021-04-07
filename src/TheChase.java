@@ -25,7 +25,7 @@ public class TheChase {
         Players players = new Players(chaser, player);
         
         System.out.println("\n");
-        
+                
         System.out.println(new LongFormQuestion());
         
         //This should be set to the value from Round 1
