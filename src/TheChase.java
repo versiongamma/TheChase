@@ -27,10 +27,10 @@ public class TheChase {
         
         System.out.println(new LongFormQuestion());
         
-        //ROUND 2 GAMEPLAY
-        int cash = 1000; //Will be set from the previous round
+        players.setPlayerCash(1000);
         
-        Round2 round2 = new Round2(cash);
+        //ROUND 2 GAMEPLAY
+        Round2 round2 = new Round2(players.getPlayerCash());
         round2.playerOfferChoice();
         round2.makeQuestionsList();
         int wonLost = round2.startRound();
@@ -50,7 +50,7 @@ public class TheChase {
                 break;
         }
         
-        
+        players.setPlayerCash(round2.getMoneyRound2());
         //END OF ROUND 2 GAMEPLAY
     }
     

@@ -5,10 +5,10 @@ public class Players {
 	private String player;
         private int playerCash;
 	
-	public Players(String chaser, String player, int playerCash) {
+	public Players(String chaser, String player) {
 		this.chaser = chaser;
 		this.player = player;
-                this.playerCash = playerCash;
+                this.playerCash = 0;
 	}
 	
 	
