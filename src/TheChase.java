@@ -35,6 +35,8 @@ public class TheChase {
         wm.printWinRoundMessage();
 
         
+        //END OF ROUND 1 GAMEPLAY
+        
         //ROUND 2 GAMEPLAY
         Round2 round2 = new Round2(players.getPlayerCash());
         round2.playerOfferChoice();
@@ -58,6 +60,11 @@ public class TheChase {
         
         players.setPlayerCash(round2.getMoneyRound2());
         //END OF ROUND 2 GAMEPLAY
+        
+        
+        //ROUND 3 GAMEPLAY
+        
+        //END OF ROUND 3 GAMEPLAY
     }
     
     
