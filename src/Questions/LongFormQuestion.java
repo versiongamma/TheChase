@@ -32,7 +32,6 @@ public class LongFormQuestion extends Question {
                 st = new StringTokenizer(line, ",");
                 num = new Random().nextInt(st.countTokens() - 2);
                 
-               // StringTokenizer longFormQuestion = new StringTokenizer(readIn.nextToken(), ",")
                 if (st.nextToken().contains(Integer.toString(num))){
                    question = st.nextToken();
                    answer = st.nextToken();

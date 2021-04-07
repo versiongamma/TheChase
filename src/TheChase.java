@@ -28,8 +28,12 @@ public class TheChase {
         
         System.out.println(new LongFormQuestion());
         
+        //ROUND ONE
+        RoundOne round1 = new RoundOne(" ", players);
         //This should be set to the value from Round 1
-        players.setPlayerCash(1000);
+        WinMessage wm = new WinMessage(players.getPlayerCash(), 1);
+        wm.printWinRoundMessage();
+
         
         //ROUND 2 GAMEPLAY
         Round2 round2 = new Round2(players.getPlayerCash());
@@ -44,7 +48,7 @@ public class TheChase {
                 System.out.println("Lose Message Here");
                 break;
             case 1:
-                WinMessage wm = new WinMessage(round2.getMoneyRound2(), 2);
+                wm = new WinMessage(round2.getMoneyRound2(), 2);
                 wm.printWinRoundMessage();
                 break;
             default:
