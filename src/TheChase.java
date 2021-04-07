@@ -48,7 +48,7 @@ public class TheChase {
                 System.out.println("Lose Message Here");
                 break;
             case 1:
-                wm = new WinMessage(round2.getMoneyRound2(), 2);
+                wm = new WinMessage(players.getPlayerCash(), 2);
                 wm.printWinRoundMessage();
                 break;
             default:
