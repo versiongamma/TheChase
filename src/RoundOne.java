@@ -1,6 +1,5 @@
 
 import Questions.LongFormQuestion;
-import Questions.MultiChoiceQuestion;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.Scanner;
@@ -16,10 +15,10 @@ import java.util.TimerTask;
 
 public class RoundOne {
     
-    private static String playerAnswer;
+    private String playerAnswer;
     
     public RoundOne(String playerAnswer){
-        RoundOne.playerAnswer = playerAnswer;
+        this.playerAnswer = playerAnswer;
     }
     
     public static void printQuestion() throws IOException{
@@ -31,20 +30,21 @@ public class RoundOne {
     }
     
     //checks the answer entered by the player
-    public static void checkAnswer(String playerAnswer) throws IOException{
-       
-        //need to call in the answer string from the csv file
-        if(playerAnswer == m){
-            System.out.println("Incorrect Answer!"
-                       + "The Answer was: ");
-            //next question
-           }
-        else if(playerAnswer == m){
-           System.out.println("Correct!");
-           // getPlayerScore()++;
-           //next question
-           }
-    }
+//    public void checkAnswer(String playerAnswer) throws IOException{
+//      RoundOne r = new RoundOne(playerAnswer);
+//      
+//        //need to call in the answer string from the csv file
+//        if(this.playerAnswer != r.getAnswer()){
+//            System.out.println("Incorrect Answer!"
+//                       + "The Answer was: ");
+//            //next question
+//           }
+//        else if(this.playerAnswer == r.getAnswer()){
+//           System.out.println("Correct!");
+//           // getPlayerScore()++;
+//           //next question
+//           }
+//    }
     
     //interal timer stuff
     Toolkit toolkit;
@@ -71,15 +71,27 @@ public class RoundOne {
     public static void main(String args[]) throws IOException {
         System.out.println("Answer as many questions as you can in 1 minute! \n"
                 + "Timer starting;");
-        new RoundOne(60);
+        new RoundOne(5);
         System.out.println("Go!");
         
         Scanner scan = new Scanner(System.in);
+        String n = " ";
         //infinite method for printing questions, will end with the timer
         for(int i = 0; i < 10; i++){
             printQuestion();
-            playerAnswer = scan.next();
-            checkAnswer(playerAnswer);
+            
+            System.out.println("Question 1: ");
+            n = scan.next();
+            System.out.println("Question 2: ");
+            n = scan.next();
+            System.out.println("Question 3: ");
+            n = scan.next();
+            System.out.println("Question 4: ");
+            n = scan.next();
+            
+            
+//            playerAnswer = scan.next();
+//            checkAnswer(this.playerAnswer);
         }
     }
     

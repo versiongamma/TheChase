@@ -3,10 +3,12 @@ public class Players {
 	
 	private String chaser;
 	private String player;
+        private int playerCash;
 	
-	public Players(String chaser, String player) {
+	public Players(String chaser, String player, int playerCash) {
 		this.chaser = chaser;
 		this.player = player;
+                this.playerCash = playerCash;
 	}
 	
 	
@@ -27,5 +29,13 @@ public class Players {
 	public void setPlayer(String player) {
 		this.player = player;
 	}
+        
+        public int getPlayerCash(){
+            return playerCash;
+        }
+        
+        public void setPlayerCash(int playerCash){
+            this.playerCash = playerCash;
+        }
 
 }
