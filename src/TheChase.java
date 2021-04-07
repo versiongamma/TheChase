@@ -15,7 +15,8 @@ public class TheChase {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        // TODO code application logic here
+        // Make this prettier to match the output style
+        // Also make sure to add in the main menu before this
         Scanner scanner = new Scanner(System.in);
         System.out.println("Player name?");
         String player = scanner.nextLine();
@@ -27,6 +28,7 @@ public class TheChase {
         
         System.out.println(new LongFormQuestion());
         
+        //This should be set to the value from Round 1
         players.setPlayerCash(1000);
         
         //ROUND 2 GAMEPLAY
