@@ -5,9 +5,10 @@ public class Players {
 	private String player;
         private int playerCash;
 	
-	public Players(String chaser, String player) {
+	public Players(String chaser, String player, int playerCash) {
 		this.chaser = chaser;
 		this.player = player;
+                this.playerCash = playerCash;
 	}
 	
 	
