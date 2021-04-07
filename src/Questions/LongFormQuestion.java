@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 public class LongFormQuestion extends Question {
 
-    private int id;
+    private int num;
     private String question;
     private String answer;
     
@@ -30,12 +30,12 @@ public class LongFormQuestion extends Question {
 
             while ((line = readIn.readLine()) != null) {
                 st = new StringTokenizer(line, ",");
-                id = new Random().nextInt(st.countTokens() - 2);
+                num = new Random().nextInt(st.countTokens() - 2);
                 
                // StringTokenizer longFormQuestion = new StringTokenizer(readIn.nextToken(), ",")
-                if (st.nextToken().contains(Integer.toString(id))){
-                    question = st.nextToken();
-                    //answer = 
+                if (st.nextToken().contains(Integer.toString(num))){
+                   question = st.nextToken();
+                   answer = st.nextToken();
                 }
                 
             }
@@ -48,6 +48,27 @@ public class LongFormQuestion extends Question {
 
     @Override
     public String toString() {
-        return String.format("%s", question);
+        return String.format("%s", getQuestion());
+    }
+    
+
+   //GETTERS AND SETTER
+    public String getQuestion() {
+        return question;
+    }
+
+  
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+   
+    public String getAnswer() {
+        return answer;
+    }
+
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }
