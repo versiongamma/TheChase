@@ -14,7 +14,7 @@ import java.io.IOException;
  *
  * @author abbyl
  */
-public class Round2 {
+public class RoundTwo {
 
     private final int MONEYROUND1;
     private Board board;
@@ -26,7 +26,7 @@ public class Round2 {
      * 
      * @param moneyRound1 the money the player won from the first round
      */
-    Round2(int moneyRound1) {
+    RoundTwo(int moneyRound1) {
         this.MONEYROUND1 = moneyRound1;
         this.board = new Board(this.highOffer(), this.lowOffer(), this.MONEYROUND1);
         this.questions = new ArrayList<Questions.MultiChoiceQuestion>();

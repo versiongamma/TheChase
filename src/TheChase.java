@@ -1,6 +1,6 @@
 
 import Questions.LongFormQuestion;
-import Questions.MultiChoiceQuestion;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -57,7 +57,7 @@ public class TheChase {
 
                     //END OF ROUND 1 GAMEPLAY
                     //ROUND 2 GAMEPLAY
-                    Round2 round2 = new Round2(players.getPlayerCash());
+                    RoundTwo round2 = new RoundTwo(players.getPlayerCash());
                     round2.playerOfferChoice();
                     round2.makeQuestionsList();
                     int wonLost = round2.startRound();
