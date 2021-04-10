@@ -6,10 +6,10 @@ import java.util.StringTokenizer;
 public abstract class Question {
 
     /** Check if the answer is correct
-     * @param answer The guess of the user
+     * @param playerAnswer The guess of the user
      * @return Boolean statement representing if the answer was correct or not
      */
-    public abstract boolean checkAnswer(String answer);
+    public abstract boolean checkAnswer(String playerAnswer, String chaserAnswer);
 
     /** Gets the data from a given file
      * @param path The path of the file to get the data from

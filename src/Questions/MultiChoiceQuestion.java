@@ -1,6 +1,7 @@
 package Questions;
 
 
+import java.util.Locale;
 
 /**
  *
@@ -37,28 +38,26 @@ public class MultiChoiceQuestion{
      * 
      * @param playerAnswer the answer the player entered
      * @param chaserAnswer the answer the player entered
-     * @return             returns 1 for both correct, 2 for just player, 3 for 
-     *                     just chaser, 0 for neither, and 4 for an incorrect input
+     * @return The state of the answer as a Answer type,
      */
-    public int checkAnswer(String playerAnswer, String chaserAnswer){
-        if((!playerAnswer.equalsIgnoreCase("A") && !playerAnswer.equalsIgnoreCase("B") 
-                && !playerAnswer.equalsIgnoreCase("C")) || (!chaserAnswer.equalsIgnoreCase("A") 
-                && !chaserAnswer.equalsIgnoreCase("B") && !chaserAnswer.equalsIgnoreCase("C"))){
+    public Answer checkAnswer(String playerAnswer, String chaserAnswer){
+        if("ABC".contains(playerAnswer.toUpperCase()) && playerAnswer.length() == 1 ||
+           "ABC".contains(chaserAnswer.toUpperCase()) && chaserAnswer.length() == 1){
             
             System.out.println("Please enter A, B, or C as your answer.");
-            return 4;
+            return null;
         }
         else if(playerAnswer.equalsIgnoreCase(ANSWER) && chaserAnswer.equalsIgnoreCase(ANSWER)){
-            return 1;
+            return Answer.BOTH;
         }
         else if(playerAnswer.equalsIgnoreCase(ANSWER) && !chaserAnswer.equalsIgnoreCase(ANSWER)){
-            return 2;
+            return Answer.PLAYER;
         }
         else if(!playerAnswer.equalsIgnoreCase(ANSWER) && chaserAnswer.equalsIgnoreCase(ANSWER)){
-            return 3;
+            return Answer.CHASER;
         }
         else{
-            return 0;
+            return Answer.NEITHER;
         }
     }
     

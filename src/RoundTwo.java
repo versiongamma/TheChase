@@ -1,5 +1,6 @@
 
 
+import Questions.Answer;
 import Questions.MultiChoiceQuestion;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -176,10 +177,10 @@ public class RoundTwo {
         String chaserAnswer;
         boolean won = false;
         boolean lost = false;
-        int result = 0;
+        Answer result = null;
 
         while (!won && !lost) {
-            while(result == 4 && count < order.length){
+            while(result == null && count < order.length){
                 System.out.println("\n" + this.questions.get(order[count]).toString());
                 System.out.println("Player answer: ");
                 playerAnswer = scanner.nextLine().trim();
@@ -188,14 +189,14 @@ public class RoundTwo {
                 result = this.questions.get(order[count]).checkAnswer(playerAnswer, chaserAnswer);
 
                 switch (result) {
-                    case 1:
+                    case BOTH:
                         this.board.playerCorrect();
                         this.board.chaserCorrect();
                         break;
-                    case 2:
+                    case PLAYER:
                         this.board.playerCorrect();
                         break;
-                    case 3:
+                    case CHASER:
                         this.board.chaserCorrect();
                         break;
                     default:
@@ -210,7 +211,7 @@ public class RoundTwo {
             }
             
             this.board.printBoard();
-            result = 4;
+            result = null;
             count++;
         }
         

@@ -14,7 +14,7 @@ public class LongFormQuestion extends Question {
     private String answer;
     
     @Override
-    public boolean checkAnswer(String answer) {
+    public boolean checkAnswer(String playerAnswer, String chaserAnswer) {
         return false;
     }
 
