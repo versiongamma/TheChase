@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 public class LongFormQuestion extends Question {
 
-    private int num;
+    private int randNum;
     private String question;
     private String answer;
     
@@ -30,9 +30,9 @@ public class LongFormQuestion extends Question {
 
             while ((line = readIn.readLine()) != null) {
                 st = new StringTokenizer(line, ",");
-                num = new Random().nextInt(st.countTokens() - 2);
+                randNum = new Random().nextInt(st.countTokens() - 2);
                 
-                if (st.nextToken().contains(Integer.toString(num))){
+                if (st.nextToken().contains(Integer.toString(randNum))){
                    question = st.nextToken();
                    answer = st.nextToken();
                 }

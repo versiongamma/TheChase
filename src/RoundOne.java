@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -89,14 +91,12 @@ public class RoundOne {
     //sets and prints the timer and questions
     /**
      *
-     * @param args
-     * @throws IOException
      */
-    public static void main(String args[]) throws IOException {
+    public void startRound() {
         System.out.println("Answer as many questions as you can in 1 minute! \n"
                 + "Timer starting;");
 
-        new RoundOne(60);
+        new RoundOne(10);
         System.out.println("Go!");
 
         Scanner scan = new Scanner(System.in);
@@ -104,9 +104,13 @@ public class RoundOne {
         //infinite method for printing questions, will end with the timer
         int m = 1;
         do {
-            printQuestion();
-            playerAnswer = scan.next();
-            checkAnswer(RoundOne.playerAnswer);
+            try {
+                printQuestion();
+                playerAnswer = scan.next();
+                checkAnswer(RoundOne.playerAnswer);
+            } catch (IOException e) {
+                System.out.println("error");
+            }
         } while (m == 1);
     }
 
