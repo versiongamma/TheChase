@@ -1,6 +1,5 @@
 
 import Questions.LongFormQuestion;
-import Questions.MultiChoiceQuestion;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -50,7 +49,6 @@ public class TheChase {
 
                     //ROUND ONE
                     RoundOne round1 = new RoundOne(" ", players);
-                    //This should be set to the value from Round 1
 
                     WinMessage wm = new WinMessage(players.getPlayerCash(), 1);
                     wm.printWinRoundMessage();
@@ -84,10 +82,10 @@ public class TheChase {
                     //END OF ROUND 3 GAMEPLAY
                     break;
                 case 2:
-                    System.out.println("Game instructions: \n"
-                            + "This game has been modled of the popular quiz game show 'The Chase'. \n"
-                            + "To play: enter the name of the player and then the chaser - this is a two player\n"
-                            + "game. Then follow the propmts and either try to out chase the chaser or catch the player!");
+                    System.out.println("\n Game instructions: \n"
+                            + " This game has been modled of the popular quiz game show 'The Chase'. \n"
+                            + " To play: enter the name of the player and then the chaser - this is a two player\n"
+                            + " game. Then follow the propmts and either try to out chase the chaser or catch the player!\n");
                     break;
                 case 3:
                     System.out.println("Goodbye!");
@@ -97,6 +95,6 @@ public class TheChase {
                     throw new IndexOutOfBoundsException();
             }
 
-        } while (selection == 1);
+        } while (selection == 1 || selection == 2);
     }
 }

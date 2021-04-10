@@ -20,9 +20,9 @@ public class RoundOne {
     Timer timer;
 
     /**
-     * 
+     *
      * @param playerAnswer
-     * @param players 
+     * @param players
      */
     public RoundOne(String playerAnswer, Players players) {
         RoundOne.playerAnswer = playerAnswer;
@@ -30,8 +30,8 @@ public class RoundOne {
     }
 
     /**
-     * 
-     * @throws IOException 
+     *
+     * @throws IOException
      */
     public static void printQuestion() throws IOException {
         try {
@@ -42,11 +42,12 @@ public class RoundOne {
     }
 
     /**
-     * 
+     *
      * @param playerAnswer
-     * @throws IOException 
+     * @throws IOException
      */
     public static void checkAnswer(String playerAnswer) throws IOException {
+
         LongFormQuestion round1 = new LongFormQuestion();
 
         if (RoundOne.playerAnswer == null ? round1.getAnswer() != null : !RoundOne.playerAnswer.equals(round1.getAnswer())) {
@@ -55,17 +56,16 @@ public class RoundOne {
             //next question
         } else if (RoundOne.playerAnswer.equals(round1.getAnswer())) {
             System.out.println("Correct!");
-            players.setPlayerCash(players.getPlayerCash() + 1);
-        }
-        else{
+            players.setPlayerCash(players.getPlayerCash() + 1000);
+        } else {
             System.out.println("Something went wrong...");
         }
     }
-   
-/**
- * 
- * @param seconds 
- */
+
+    /**
+     *
+     * @param seconds
+     */
     public RoundOne(int seconds) {
         toolkit = Toolkit.getDefaultToolkit();
         timer = new Timer();
@@ -73,7 +73,7 @@ public class RoundOne {
     }
 
     /**
-     * 
+     *
      */
     class timeOut extends TimerTask {
 
@@ -88,9 +88,9 @@ public class RoundOne {
 
     //sets and prints the timer and questions
     /**
-     * 
+     *
      * @param args
-     * @throws IOException 
+     * @throws IOException
      */
     public static void main(String args[]) throws IOException {
         System.out.println("Answer as many questions as you can in 1 minute! \n"
@@ -100,12 +100,14 @@ public class RoundOne {
         System.out.println("Go!");
 
         Scanner scan = new Scanner(System.in);
+
         //infinite method for printing questions, will end with the timer
-        for (int i = 0; i < 10; i++) {
+        int m = 1;
+        do {
             printQuestion();
             playerAnswer = scan.next();
             checkAnswer(RoundOne.playerAnswer);
-        }
+        } while (m == 1);
     }
 
 }
