@@ -46,8 +46,6 @@ public class TheChase {
 
                     System.out.println("\n");
 
-                    System.out.println(new LongFormQuestion());
-
                     //ROUND ONE
                     RoundOne round1 = new RoundOne(" ", players);
                     round1.startRound();
