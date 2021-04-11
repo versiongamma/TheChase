@@ -1,7 +1,3 @@
-
-import Questions.LongFormQuestion;
-
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -14,7 +10,7 @@ public class TheChase {
      *
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         // Make this prettier to match the output style
         // Also make sure to add in the main menu before this
 
