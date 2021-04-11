@@ -5,11 +5,11 @@ import Questions.MultiChoiceQuestion;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-import java.util.Random;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Collections;
 
 /**
  *
@@ -168,9 +168,6 @@ public class RoundTwo {
      */
     public int startRound() {
         Scanner scanner = new Scanner(System.in);
-        Random rand = new Random();
-        int upperBound = this.questions.size();
-        int[] order = this.randomQuestionOrder();
 
         int count = 0;
         String playerAnswer;
@@ -178,15 +175,16 @@ public class RoundTwo {
         boolean won = false;
         boolean lost = false;
         Answer result = null;
+        Collections.shuffle(this.questions);
 
         while (!won && !lost) {
-            while(result == null && count < order.length){
-                System.out.println("\n" + this.questions.get(order[count]).toString());
+            while(result == null && count < this.questions.size()){
+                System.out.println("\n" + this.questions.get(count).toString());
                 System.out.println("Player answer: ");
                 playerAnswer = scanner.nextLine().trim();
                 System.out.println("Chaser answer: ");
                 chaserAnswer = scanner.nextLine().trim();
-                result = this.questions.get(order[count]).checkAnswer(playerAnswer, chaserAnswer);
+                result = this.questions.get(count).checkAnswer(playerAnswer, chaserAnswer);
 
                 switch (result) {
                     case BOTH:
@@ -223,29 +221,5 @@ public class RoundTwo {
         else{
             return -1;
         }
-    }
-    
-    /**
-     * Returns an integer array containing a random order for the questions to be
-     * displayed in.
-     * 
-     * @return order the randomly generated integer Array
-     */
-    public int[] randomQuestionOrder(){
-        Random rand = new Random();
-        int upperBound = this.questions.size();
-        int[] order = new int[upperBound];
-        boolean duplicateNumber = false;
-        for (int i = 0; i < order.length; i++) {
-            int temp = rand.nextInt(upperBound);
-            for (int j = 0; j < i; j++) {
-                if (order[j] == temp) {
-                    temp = rand.nextInt(upperBound);
-                }
-            }
-            order[i] = temp;
-        }
-        
-        return order;
     }
 }
