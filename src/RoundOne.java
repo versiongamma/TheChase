@@ -38,15 +38,12 @@ public class RoundOne {
     public static void checkAnswer(String playerAnswer, LongFormQuestion question) {
         if (question.checkAnswer(playerAnswer)) {
             System.out.println("Correct!");
-            players.setPlayerCash(players.getPlayerCash() + 1);
+            players.setPlayerCash(players.getPlayerCash() + 1000);
         } else {
             System.out.println(String.format("Incorrect! The correct answer was: %s", question.getAnswer()));
         }
-
-
     }
 
-    //
 
     /**
      *
@@ -66,16 +63,14 @@ public class RoundOne {
         }, seconds * 1000);
     }
 
-    //
     /**
      * Sets and prints the timer and questions
-     * @throws IOException
      */
     public void startRound() {
         System.out.println("Answer as many questions as you can in 1 minute! \n"
                 + "Timer starting;");
 
-        new RoundOne(60);
+        RoundOne roundOne = new RoundOne(60);
         System.out.println("Go!");
 
         Scanner scan = new Scanner(System.in);
@@ -85,7 +80,7 @@ public class RoundOne {
             System.out.println(question.getQuestion());
             playerAnswer = scan.nextLine();
 
-            this.checkAnswer(playerAnswer, question);
+            RoundOne.checkAnswer(playerAnswer, question);
         }
     }
 

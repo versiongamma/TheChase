@@ -8,6 +8,11 @@ public class LongFormQuestion extends Question {
     private String question;
     private String answer;
 
+    /**
+     * 
+     * @param playerAnswer
+     * @return 
+     */
     @Override
     public boolean checkAnswer(String playerAnswer) {
 
@@ -17,6 +22,7 @@ public class LongFormQuestion extends Question {
 
     /**
      *
+     * @param round
      */
     public LongFormQuestion(int round) {
         StringTokenizer line;
@@ -35,6 +41,10 @@ public class LongFormQuestion extends Question {
         }
     }
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public String toString() {
         return String.format("%s", getQuestion());
