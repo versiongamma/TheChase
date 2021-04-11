@@ -67,7 +67,8 @@ public class RoundOne {
      * Sets and prints the timer and questions
      */
     public void startRound() {
-        System.out.println("Answer as many questions as you can in 1 minute! \n"
+        System.out.println("Answer as many questions as you can in 1 minute! "
+                + "When the timer finishes you will have time to answer the final question.\n"
                 + "Timer starting;");
 
         RoundOne roundOne = new RoundOne(60);
