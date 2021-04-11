@@ -55,26 +55,20 @@ public class RoundOne {
     public RoundOne(int seconds) {
         toolkit = Toolkit.getDefaultToolkit();
         timer = new Timer();
-        timer.schedule(new timeOut(), seconds * 1000);
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("Time's up!");
+
+                toolkit.beep();
+                timer.cancel();
+            }
+        }, seconds * 1000);
     }
 
+    //
     /**
-     *
-     */
-    class timeOut extends TimerTask {
-
-        public void run() {
-            System.out.println("Time's up!");
-
-            toolkit.beep();
-            timer.cancel();
-
-        }
-    }
-
-    //sets and prints the timer and questions
-    /**
-     *
+     * Sets and prints the timer and questions
      * @throws IOException
      */
     public void startRound() {
