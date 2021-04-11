@@ -146,7 +146,7 @@ public class RoundTwo {
             while ((line = inStream.readLine()) != null) {
                 StringTokenizer st = new StringTokenizer(line, "*");
                 while (st.hasMoreTokens()) {
-                    Questions.MultiChoiceQuestion temp = new Questions.MultiChoiceQuestion(st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken());
+                    MultiChoiceQuestion temp = new MultiChoiceQuestion(st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken());
                     this.questions.add(temp);
                 }
             }
