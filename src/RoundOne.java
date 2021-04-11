@@ -14,23 +14,8 @@ import java.util.TimerTask;
  */
 public class RoundOne {
 
-    /**
-     * @return the cashTotal
-     */
-    public static int getCashTotal() {
-        return cashTotal;
-    }
-
-    /**
-     * @param aCashTotal the cashTotal to set
-     */
-    public static void setCashTotal(int aCashTotal) {
-        cashTotal = aCashTotal;
-    }
-
     private static String playerAnswer;
     private static Players players;
-    private static int cashTotal;
     Toolkit toolkit;
     Timer timer;
 
@@ -40,10 +25,9 @@ public class RoundOne {
      * @param players
      * @param cashTotal
      */
-    public RoundOne(String playerAnswer, Players players, int cashTotal) {
+    public RoundOne(String playerAnswer, Players players) {
         RoundOne.playerAnswer = playerAnswer;
         RoundOne.players = players;
-        RoundOne.cashTotal = 0;
     }
 
     /**
