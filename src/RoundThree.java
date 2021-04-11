@@ -1,35 +1,39 @@
-
-import java.awt.Toolkit;
-import java.util.Timer;
-import java.util.TimerTask;
-
+import java.util.Scanner;
 
 public class RoundThree {
-    //2 minute timer 
-    //the player starts by answering as many questions in 2 minutes
-    //the chaser then gets to try and 'catch' the player, but if they get
-    //a question wrong then the player has a chance to push them back by answering
-    //the same question correctly.
-    
-    Toolkit toolkit;
-    Timer timer;
-    
-      public RoundThree(int seconds) {
-        toolkit = Toolkit.getDefaultToolkit();
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
+    private Players players;
+
+    public RoundThree(Players players) {
+        this.players = players;
+    }
+
+    public synchronized void startRound() {
+        Thread timedRound = new Thread() {
             @Override
             public void run() {
-                System.out.println("Time's up!");
-
-                toolkit.beep();
-                timer.cancel();
+                Scanner scanner = new Scanner(System.in);
+                while(true) {
+                    System.out.println("x");
+                    scanner.nextLine();
+                }
             }
-        }, seconds * 1000);
+        };
+
+        timedRound.start();
+        System.out.println("Thread Started");
+        try {
+            wait(1000);
+            timedRound.stop(); // Yes I know this is deprecated, but Thread.interrupt wasn't working
+
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
-      
-      public void startRound(){
-          new RoundThree(120);
-      }
-    
+
+    public static void main(String[] args) {
+        RoundThree r3 = new RoundThree(new Players("",""));
+        r3.startRound();
+    }
 }
