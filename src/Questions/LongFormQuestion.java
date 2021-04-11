@@ -1,20 +1,15 @@
 package Questions;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Random;
 import java.util.StringTokenizer;
 
 public class LongFormQuestion extends Question {
 
-    private int num;
     private String question;
     private String answer;
     
     @Override
-    public boolean checkAnswer(String playerAnswer, String chaserAnswer) {
+    public boolean checkAnswer(String playerAnswer) {
         return false;
     }
 
@@ -22,26 +17,23 @@ public class LongFormQuestion extends Question {
      *
      */
     public LongFormQuestion() {
-        try {
-            
-            StringTokenizer st;
-            BufferedReader readIn = new BufferedReader(new FileReader("./data/long-form-questions.csv"));
-            String line;
+        StringTokenizer line;
+        StringTokenizer lines = getLines("./data/long-form-questions.csv");
+        int index = 0, i = 0;
 
-            while ((line = readIn.readLine()) != null) {
-                st = new StringTokenizer(line, ",");
-                num = new Random().nextInt(st.countTokens() - 2);
-                
-                if (st.nextToken().contains(Integer.toString(num))){
-                   question = st.nextToken();
-                   answer = st.nextToken();
-                }
-                
+        while (lines.hasMoreTokens()) {
+            line = new StringTokenizer(lines.nextToken(), ",");
+            if (line.countTokens() == 1) {
+                index = new Random().nextInt(Integer.parseInt(line.nextToken().replace("\r", "")));
+                continue;
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("File Not Found");
-        } catch (IOException e) {
-            System.out.println("Error reading file");
+
+            if (index == i) {
+                question = line.nextToken();
+                answer = line.nextToken();
+                break;
+            }
+            ++i;
         }
     }
 
