@@ -63,9 +63,8 @@ public class TheChase {
 
                     switch (wonLost) {
                         case 0:
-                            //LoseMessage lm = new LoseMessage(??);
-                            //lm.printLoseMessage();
-                            System.out.println("Lose Message Here");
+                            LoseMessage lm = new LoseMessage();
+                            lm.printLoseMessage();
                             break;
                         case 1:
                             wm = new WinMessage(players.getPlayerCash(), 2);
