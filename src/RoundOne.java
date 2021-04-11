@@ -88,7 +88,7 @@ public class RoundOne {
         Scanner scan = new Scanner(System.in);
         //infinite method for printing questions, will end with the timer
         for (int i = 0; i < 10; i++) {
-            LongFormQuestion question = new LongFormQuestion();
+            LongFormQuestion question = new LongFormQuestion(1);
             System.out.println(question.getQuestion());
             playerAnswer = scan.nextLine();
 

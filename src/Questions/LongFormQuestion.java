@@ -20,9 +20,9 @@ public class LongFormQuestion extends Question {
     /**
      *
      */
-    public LongFormQuestion() {
+    public LongFormQuestion(int round) {
         StringTokenizer line;
-        StringTokenizer lines = getLines("./data/long-form-questions.csv");
+        StringTokenizer lines = getLines(round == 2 ? "" : "./data/long-form-questions.csv");
         int index = 0, i = 0;
 
         while (lines.hasMoreTokens()) {
