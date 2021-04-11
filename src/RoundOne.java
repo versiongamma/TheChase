@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -16,8 +14,23 @@ import java.util.logging.Logger;
  */
 public class RoundOne {
 
+    /**
+     * @return the cashTotal
+     */
+    public static int getCashTotal() {
+        return cashTotal;
+    }
+
+    /**
+     * @param aCashTotal the cashTotal to set
+     */
+    public static void setCashTotal(int aCashTotal) {
+        cashTotal = aCashTotal;
+    }
+
     private static String playerAnswer;
     private static Players players;
+    private static int cashTotal;
     Toolkit toolkit;
     Timer timer;
 
@@ -25,10 +38,12 @@ public class RoundOne {
      *
      * @param playerAnswer
      * @param players
+     * @param cashTotal
      */
-    public RoundOne(String playerAnswer, Players players) {
+    public RoundOne(String playerAnswer, Players players, int cashTotal) {
         RoundOne.playerAnswer = playerAnswer;
         RoundOne.players = players;
+        RoundOne.cashTotal = 0;
     }
 
     /**
@@ -84,7 +99,6 @@ public class RoundOne {
 
             toolkit.beep();
             timer.cancel();
-
         }
     }
 

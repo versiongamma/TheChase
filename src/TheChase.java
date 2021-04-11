@@ -37,9 +37,9 @@ public class TheChase {
                 case 1:
                     //game starts
                     
-                    System.out.println("Player name?");
+                    System.out.println("Player name: ");
                     String player = scanner.nextLine();
-                    System.out.println("Chaser name?");
+                    System.out.println("Chaser name: ");
                     String chaser = scanner.nextLine();
                     Players players = new Players(chaser, player);
 
@@ -50,6 +50,7 @@ public class TheChase {
                     //ROUND ONE
                     RoundOne round1 = new RoundOne(" ", players);
                     round1.startRound();
+                    
 
                     WinMessage wm = new WinMessage(players.getPlayerCash(), 1);
                     wm.printWinRoundMessage();
