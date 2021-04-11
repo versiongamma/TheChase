@@ -24,7 +24,7 @@ public class LongFormQuestion extends Question {
         int index = 0, i = 0;
 
         while (lines.hasMoreTokens()) {
-            line = new StringTokenizer(lines.nextToken(), ",");
+            line = new StringTokenizer(lines.nextToken(), "*");
             if (line.countTokens() == 1) {
                 index = new Random().nextInt(Integer.parseInt(line.nextToken().replace("\r", "")));
                 continue;
