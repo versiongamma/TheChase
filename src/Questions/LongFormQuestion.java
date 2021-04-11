@@ -7,10 +7,12 @@ public class LongFormQuestion extends Question {
 
     private String question;
     private String answer;
-    
+
     @Override
     public boolean checkAnswer(String playerAnswer) {
-        return false;
+
+        return playerAnswer.equalsIgnoreCase(answer);
+
     }
 
     /**
@@ -31,6 +33,7 @@ public class LongFormQuestion extends Question {
             if (index == i) {
                 question = line.nextToken();
                 answer = line.nextToken();
+                answer = line.nextToken().replace("\r", "");
                 break;
             }
             ++i;
@@ -41,23 +44,19 @@ public class LongFormQuestion extends Question {
     public String toString() {
         return String.format("%s", getQuestion());
     }
-    
 
-   //GETTERS AND SETTER
+    //GETTERS AND SETTER
     public String getQuestion() {
         return question;
     }
 
-  
     public void setQuestion(String question) {
         this.question = question;
     }
 
-   
     public String getAnswer() {
         return answer;
     }
-
 
     public void setAnswer(String answer) {
         this.answer = answer;

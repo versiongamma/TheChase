@@ -35,13 +35,13 @@ public class RoundOne {
     /**
      * 
      * @param playerAnswer
-     * @throws IOException 
+     * @param question
      */
+
     public static void checkAnswer(String playerAnswer, Question question) throws IOException {
         if (question.checkAnswer(playerAnswer)) {
-            players.setPlayerCash(players.getPlayerCash() + 1);
+
         }
-    }
 
     //
    
@@ -72,7 +72,10 @@ public class RoundOne {
      *
      * @throws IOException
      */
+
+
     public void startRound() throws IOException {
+
         System.out.println("Answer as many questions as you can in 1 minute! \n"
                 + "Timer starting;");
 
@@ -84,6 +87,11 @@ public class RoundOne {
         for (int i = 0; i < 10; i++) {
             LongFormQuestion question = new LongFormQuestion();
             playerAnswer = scan.next();
+
+            System.out.println(question.getQuestion());
+            playerAnswer = scan.nextLine();
+
+            this.checkAnswer(playerAnswer, question);
         }
     }
 
