@@ -21,18 +21,13 @@ public class LongFormQuestion extends Question {
     public LongFormQuestion(int round) {
         StringTokenizer line;
         StringTokenizer lines = getLines(round == 2 ? "" : "./data/long-form-questions.csv");
-        int index = 0, i = 0;
+        int index = new Random().nextInt(lines.countTokens()), i = 0;
 
         while (lines.hasMoreTokens()) {
             line = new StringTokenizer(lines.nextToken(), "*");
-            if (line.countTokens() == 1) {
-                index = new Random().nextInt(Integer.parseInt(line.nextToken().replace("\r", "")));
-                continue;
-            }
 
             if (index == i) {
                 question = line.nextToken();
-                answer = line.nextToken();
                 answer = line.nextToken().replace("\r", "");
                 break;
             }
