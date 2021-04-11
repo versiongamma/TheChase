@@ -18,6 +18,7 @@ public class RoundOne {
 
     private static String playerAnswer;
     private static Players players;
+    private LongFormQuestion question;
     Toolkit toolkit;
     Timer timer;
 
@@ -36,16 +37,11 @@ public class RoundOne {
      * @param playerAnswer
      * @param question
      */
-    public static void checkAnswer(String playerAnswer, LongFormQuestion question) {
+
+    public static void checkAnswer(String playerAnswer, Question question) throws IOException {
         if (question.checkAnswer(playerAnswer)) {
-            System.out.println("Correct!");
-            players.setPlayerCash(players.getPlayerCash() + 1);
-        } else {
-            System.out.println(String.format("Incorrect! The correct answer was: %s", question.getAnswer()));
+
         }
-
-
-    }
 
     //
    
@@ -63,13 +59,11 @@ public class RoundOne {
      * 
      */
     class timeOut extends TimerTask {
-
         public void run() {
             System.out.println("Time's up!");
 
             toolkit.beep();
             timer.cancel();
-
         }
     }
 
@@ -78,7 +72,10 @@ public class RoundOne {
      *
      * @throws IOException
      */
-    public void startRound() {
+
+
+    public void startRound() throws IOException {
+
         System.out.println("Answer as many questions as you can in 1 minute! \n"
                 + "Timer starting;");
 
