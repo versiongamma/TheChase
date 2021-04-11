@@ -34,11 +34,7 @@ public class RoundOne {
      * @throws IOException 
      */
     public static void printQuestion() throws IOException {
-        try {
-            System.out.println(new LongFormQuestion());
-        } catch (IOException e) {
-            System.out.println("Unable to read in question.");
-        }
+        System.out.println(new LongFormQuestion());
     }
 
     /**
@@ -86,13 +82,10 @@ public class RoundOne {
         }
     }
 
-    //sets and prints the timer and questions
-    /**
-     * 
-     * @param args
-     * @throws IOException 
-     */
-    public static void main(String args[]) throws IOException {
+  /**
+   * 
+   */
+    public  void startRound() {
         System.out.println("Answer as many questions as you can in 1 minute! \n"
                 + "Timer starting;");
 
@@ -102,9 +95,13 @@ public class RoundOne {
         Scanner scan = new Scanner(System.in);
         //infinite method for printing questions, will end with the timer
         for (int i = 0; i < 10; i++) {
-            printQuestion();
-            playerAnswer = scan.next();
-            checkAnswer(RoundOne.playerAnswer);
+            try {
+                printQuestion();
+                playerAnswer = scan.next();
+                checkAnswer(RoundOne.playerAnswer);
+            } catch (IOException ex) {
+                System.out.println("Error");;
+            }
         }
     }
 
