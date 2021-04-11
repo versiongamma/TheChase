@@ -9,5 +9,19 @@
  * @author julia
  */
 public class LoseMessage {
+   
+    Players players;
+
+    
+    public void printLoseMessage(){
+            System.out.println("\n=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+");
+            System.out.println("  |         Well done Chaser!          |");
+            System.out.println("  |     You caught the player and won! |");
+            System.out.println(" =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n");  
+            
+            System.out.println("\n=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+");
+            System.out.println("  |Player money lost: "+players.getPlayerCash()+"|");
+            System.out.println(" =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n"); 
+    }
     
 }
