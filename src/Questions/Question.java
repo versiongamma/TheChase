@@ -15,7 +15,7 @@ public abstract class Question {
      * @param path The path of the file to get the data from
      * @return StringTokenizer of each line in the file
      */
-    public StringTokenizer getLines(String path) {
+    protected StringTokenizer getLines(String path) {
         try {
             FileReader reader = new FileReader(path);
             StringBuilder file = new StringBuilder(); // StringBuilder performs faster than += to a string

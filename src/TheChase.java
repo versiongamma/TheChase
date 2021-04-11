@@ -44,6 +44,7 @@ public class TheChase {
 
                     //ROUND ONE
                     RoundOne round1 = new RoundOne(" ", players);
+                    round1.startRound();
                     //This should be set to the value from Round 1
 
                     WinMessage wm = new WinMessage(players.getPlayerCash(), 1);

@@ -14,7 +14,7 @@ public class LongFormQuestion extends Question {
     
     @Override
     public boolean checkAnswer(String playerAnswer) {
-        return false;
+        return playerAnswer.equalsIgnoreCase(answer);
     }
 
     /**
@@ -34,7 +34,7 @@ public class LongFormQuestion extends Question {
 
             if (index == i) {
                 question = line.nextToken();
-                answer = line.nextToken();
+                answer = line.nextToken().replace("\r", "");
                 break;
             }
             ++i;
