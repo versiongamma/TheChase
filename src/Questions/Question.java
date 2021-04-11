@@ -9,7 +9,7 @@ public abstract class Question {
      * @param playerAnswer The guess of the user
      * @return Boolean statement representing if the answer was correct or not
      */
-    public abstract boolean checkAnswer(String playerAnswer, String chaserAnswer);
+    public abstract boolean checkAnswer(String playerAnswer);
 
     /** Gets the data from a given file
      * @param path The path of the file to get the data from
