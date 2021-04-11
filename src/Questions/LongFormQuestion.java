@@ -21,7 +21,7 @@ public class LongFormQuestion extends Question {
     /**
      *
      */
-    public LongFormQuestion() throws FileNotFoundException, IOException {
+    public LongFormQuestion() {
         try {
             
             StringTokenizer st;
