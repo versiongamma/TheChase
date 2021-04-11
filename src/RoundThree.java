@@ -5,6 +5,11 @@ import java.util.TimerTask;
 
 
 public class RoundThree {
+    //2 minute timer 
+    //the player starts by answering as many questions in 2 minutes
+    //the chaser then gets to try and 'catch' the player, but if they get
+    //a question wrong then the player has a chance to push them back by answering
+    //the same question correctly.
     
     Toolkit toolkit;
     Timer timer;
