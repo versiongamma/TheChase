@@ -1,4 +1,3 @@
-
 import Questions.LongFormQuestion;
 import Questions.Question;
 
@@ -18,14 +17,13 @@ public class RoundOne {
 
     private static String playerAnswer;
     private static Players players;
-    private LongFormQuestion question;
     Toolkit toolkit;
     Timer timer;
 
     /**
-     * 
+     *
      * @param playerAnswer
-     * @param players 
+     * @param players
      */
     public RoundOne(String playerAnswer, Players players) {
         RoundOne.playerAnswer = playerAnswer;
@@ -33,22 +31,27 @@ public class RoundOne {
     }
 
     /**
-     * 
+     *
      * @param playerAnswer
      * @param question
      */
-
-    public static void checkAnswer(String playerAnswer, Question question) throws IOException {
+    public static void checkAnswer(String playerAnswer, LongFormQuestion question) {
         if (question.checkAnswer(playerAnswer)) {
-
+            System.out.println("Correct!");
+            players.setPlayerCash(players.getPlayerCash() + 1);
+        } else {
+            System.out.println(String.format("Incorrect! The correct answer was: %s", question.getAnswer()));
         }
 
+
+    }
+
     //
-   
-/**
- * 
- * @param seconds 
- */
+
+    /**
+     *
+     * @param seconds
+     */
     public RoundOne(int seconds) {
         toolkit = Toolkit.getDefaultToolkit();
         timer = new Timer();
@@ -56,14 +59,16 @@ public class RoundOne {
     }
 
     /**
-     * 
+     *
      */
     class timeOut extends TimerTask {
+
         public void run() {
             System.out.println("Time's up!");
 
             toolkit.beep();
             timer.cancel();
+
         }
     }
 
@@ -72,10 +77,7 @@ public class RoundOne {
      *
      * @throws IOException
      */
-
-
-    public void startRound() throws IOException {
-
+    public void startRound() {
         System.out.println("Answer as many questions as you can in 1 minute! \n"
                 + "Timer starting;");
 
