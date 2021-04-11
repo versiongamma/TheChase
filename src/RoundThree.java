@@ -8,23 +8,19 @@ public class RoundThree {
     }
 
     public synchronized void startRound() {
-        Thread timedRound = new Thread() {
-            @Override
-            public void run() {
+        Thread timedRound = new Thread(() -> {
                 Scanner scanner = new Scanner(System.in);
                 while(true) {
                     System.out.println("x");
                     scanner.nextLine();
                 }
-            }
-        };
+            });
 
         timedRound.start();
         System.out.println("Thread Started");
         try {
             wait(1000);
             timedRound.stop(); // Yes I know this is deprecated, but Thread.interrupt wasn't working
-
 
         } catch (InterruptedException e) {
             e.printStackTrace();
