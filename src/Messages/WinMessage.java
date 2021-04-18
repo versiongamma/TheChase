@@ -81,7 +81,7 @@ public class WinMessage {
     }
     
     //adds the player's stats to the stats file
-    //public void addStats(Rounds.Players players){
+    //public void addStats(Game.Players players){
         
     //}
 }

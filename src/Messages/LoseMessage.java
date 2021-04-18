@@ -4,7 +4,7 @@ package Messages;/*
  * and open the template in the editor.
  */
 
-import Rounds.Players;
+import Game.Players;
 
 /**
  *

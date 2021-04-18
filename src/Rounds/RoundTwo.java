@@ -1,5 +1,7 @@
 package Rounds;
 
+import Game.Board;
+import Game.Players;
 import Questions.Answer;
 import Questions.MultiChoiceQuestion;
 import java.util.Scanner;

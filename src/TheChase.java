@@ -1,6 +1,6 @@
 import Messages.LoseMessage;
 import Messages.WinMessage;
-import Rounds.Players;
+import Game.Players;
 import Rounds.Round;
 import Rounds.RoundOne;
 import Rounds.RoundTwo;
