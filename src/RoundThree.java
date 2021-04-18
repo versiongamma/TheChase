@@ -1,3 +1,8 @@
+import Exceptions.QuestionAlreadyUsedException;
+import Questions.LongFormQuestion;
+import Questions.Question;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RoundThree {
@@ -9,17 +14,30 @@ public class RoundThree {
 
     public synchronized void startRound() {
         Thread timedRound = new Thread(() -> {
+            ArrayList<Question> questions = new ArrayList<Question>();
                 Scanner scanner = new Scanner(System.in);
                 while(true) {
-                    System.out.println("x");
+                    LongFormQuestion q = new LongFormQuestion(2);
+                    try {
+                        for (Question done : questions) {
+                            System.out.println(done);
+                            if (q.equals(done)) {
+                                System.out.println("skipping");
+                                throw new QuestionAlreadyUsedException();
+                            }
+                        }
+                    } catch (QuestionAlreadyUsedException e) {
+                        continue;
+                    }
+                    questions.add(q);
+                    System.out.println(q);
                     scanner.nextLine();
                 }
             });
 
         timedRound.start();
-        System.out.println("Thread Started");
         try {
-            wait(1000);
+            wait(1000 * 120);
             timedRound.stop(); // Yes I know this is deprecated, but Thread.interrupt wasn't working
 
         } catch (InterruptedException e) {
