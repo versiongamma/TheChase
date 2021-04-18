@@ -21,7 +21,7 @@ public class Board {
      * @param low    the low offer from the chaser
      * @param middle the amount of money the player won in round 1
      */
-    Board(int high, int low, int middle) {
+    public Board(int high, int low, int middle) {
         this.HIGHOFFER = high;
         this.LOWOFFER = low;
         this.MIDDLEOFFER = middle;

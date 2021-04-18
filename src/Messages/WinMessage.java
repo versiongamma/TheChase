@@ -14,7 +14,7 @@ public class WinMessage {
      * @param cashWon     the amount of cash the player won from the round
      * @param roundNumber the round they won
      */
-    WinMessage(int cashWon, int roundNumber){
+    public WinMessage(int cashWon, int roundNumber){
         this.CASHWON = cashWon;
         this.ROUNDNUMBER = roundNumber;
     }

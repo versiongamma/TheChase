@@ -8,6 +8,9 @@ import Questions.Question;
 import Questions.LongFormQuestion;
 import java.util.ArrayList;
 
+/**
+ * @author Matt 19076935
+ */
 public class RoundThree implements Round {
     private Players players;
 
@@ -15,6 +18,10 @@ public class RoundThree implements Round {
         this.players = players;
     }
 
+    /**
+     * Starts the round
+     * @return The outcome of the round
+     */
     public synchronized boolean startRound() {
         Thread timedRound = new Thread(() -> {
             ArrayList<Question> questions = new ArrayList<Question>();

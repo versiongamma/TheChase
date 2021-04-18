@@ -234,6 +234,8 @@ public class RoundTwo implements Round{
          *                                                     object into the class instead of just the money, and at
          *                                                     some point this method should be called in here, but
          *                                                     idk when that should be
+         *
+         * - matt
         */
         return won;
     }

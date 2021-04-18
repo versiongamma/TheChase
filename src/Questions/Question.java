@@ -3,6 +3,9 @@ package Questions;
 import java.io.FileReader;
 import java.util.StringTokenizer;
 
+/**
+ * @author Matt 19077935
+ */
 public abstract class Question {
 
     /** Check if the answer is correct

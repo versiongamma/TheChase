@@ -3,15 +3,18 @@ package Questions;
 import java.util.Random;
 import java.util.StringTokenizer;
 
+/**
+ * @author Matt 19076935
+ */
 public class LongFormQuestion extends Question {
 
     private String question;
     private String answer;
 
     /**
-     * 
-     * @param playerAnswer
-     * @return 
+     * Checks if an answer to a question is correct
+     * @param playerAnswer The answer to check with
+     * @return If the answer is correct
      */
     @Override
     public boolean checkAnswer(String playerAnswer) {
@@ -28,8 +31,8 @@ public class LongFormQuestion extends Question {
     }
 
     /**
-     *
-     * @param round
+     * Constructs a new long question based on the stored set of questions
+     * @param round The round that the question is being generated for (2 for round 2, 1 (or anything else) for round 1)
      */
     public LongFormQuestion(int round) {
         StringTokenizer line;

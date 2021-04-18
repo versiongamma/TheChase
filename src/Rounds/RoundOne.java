@@ -22,7 +22,7 @@ public class RoundOne implements Round {
     Timer timer;
 
     /**
-     *
+     * Default round constructor
      * @param playerAnswer
      * @param players
      */
@@ -32,9 +32,9 @@ public class RoundOne implements Round {
     }
 
     /**
-     *
-     * @param playerAnswer
-     * @param question
+     * Checks if a given answer is correct, and adds money to the player if so
+     * @param playerAnswer The players answer
+     * @param question The question they are answering
      */
     public static void checkAnswer(String playerAnswer, LongFormQuestion question) {
         if (question.checkAnswer(playerAnswer)) {
@@ -47,8 +47,8 @@ public class RoundOne implements Round {
 
 
     /**
-     *
-     * @param seconds
+     * Creates a new round
+     * @param seconds the amount of time the round should last
      */
     public RoundOne(int seconds) {
         toolkit = Toolkit.getDefaultToolkit();
@@ -66,6 +66,7 @@ public class RoundOne implements Round {
 
     /**
      * Sets and prints the timer and questions
+     * @return The outcome of the round's completion (true is successful)
      */
     public boolean startRound() {
         System.out.println("Answer as many questions as you can in 1 minute! "
