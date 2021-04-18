@@ -1,4 +1,4 @@
-
+package Rounds;
 
 import Questions.Answer;
 import Questions.MultiChoiceQuestion;
@@ -15,23 +15,25 @@ import java.util.Collections;
  *
  * @author abbyl
  */
-public class RoundTwo {
+public class RoundTwo implements Round{
 
     private final int MONEYROUND1;
     private Board board;
     private ArrayList<Questions.MultiChoiceQuestion> questions;
     private int moneyRound2;
+    private Players players;
 
     /**
      * Constructor for a Round2 object.
      * 
-     * @param moneyRound1 the money the player won from the first round
+     * @param players the money the player won from the first round
      */
-    RoundTwo(int moneyRound1) {
-        this.MONEYROUND1 = moneyRound1;
+    public RoundTwo(Players players) {
+        this.MONEYROUND1 = players.getPlayerCash();
         this.board = new Board(this.highOffer(), this.lowOffer(), this.MONEYROUND1);
         this.questions = new ArrayList<Questions.MultiChoiceQuestion>();
         this.moneyRound2 = 0;
+        this.players = players;
     }
     
     /**
@@ -164,12 +166,15 @@ public class RoundTwo {
     /**
      * Executes game play of round 2. Displays questions in a random order, prompts
      * player and chaser for answers and calls method to evaluate answers. At completion
-     * of game play, returns 1 if player won and 0 if player lost.
+     * of game play, returns true if player won and false if player lost.
      * 
-     * @return returns 1 if player won, returns 0 if player lost
+     * @return returns true if player won, returns false if player lost
      */
-    public int startRound() {
+    public boolean startRound() {
         Scanner scanner = new Scanner(System.in);
+
+        playerOfferChoice();
+        makeQuestionsList();
 
         int count = 0;
         String playerAnswer;
@@ -203,25 +208,31 @@ public class RoundTwo {
                         break;
                 }
             }
+            //
 
             if (this.board.getPlayerPosition() == 9) {
                 won = true;
             } else if (this.board.getChaserPosition() == this.board.getPlayerPosition()) {
                 lost = true;
             }
-            
+
             this.board.printBoard();
             result = null;
             count++;
         }
-        
-        if (won) {
-            return 1;
-        } else if (lost) {
-            return 0;
-        }
-        else{
-            return -1;
-        }
+        // TODO: AT SOME POINT, THIS FUNCTION SHOULD ADD TO THE PLAYER OBJECT PASSED IN THE CONSTRUCTORS' SCORE. I'm not entirely sure when that should be, so if you could do that that'd be nice
+        /** It's effectively replacing the setting of the players cash in the main method that was happening before,
+         *  consolidating shit into this class instead of having it happen in the main method
+         *
+         *  What was in the main method before:
+         *  round2.playerOfferChoice();
+         *  round2.makeQuestionsList(); -- These 2 methods where pretty straightforward to integrate into the startRound method of this class
+         *
+         *  players.setPlayerCash(round2.getMoneyRound2()); -- It's this guy i'm not sure about, I've passed the players
+         *                                                     object into the class instead of just the money, and at
+         *                                                     some point this method should be called in here, but
+         *                                                     idk when that should be
+        */
+        return won;
     }
 }

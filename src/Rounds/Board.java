@@ -1,4 +1,4 @@
-
+package Rounds;
 
 /**
  *
@@ -14,7 +14,7 @@ public class Board {
     private int moneyChoice;
 
     /**
-     * Constructor for Board object. Assigns default values to playerPosition, chaserPosition,
+     * Constructor for Rounds.Board object. Assigns default values to playerPosition, chaserPosition,
      * and moneyChoice.
      * 
      * @param high   the high offer from the chaser

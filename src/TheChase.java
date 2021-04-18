@@ -1,3 +1,10 @@
+import Messages.LoseMessage;
+import Messages.WinMessage;
+import Rounds.Players;
+import Rounds.Round;
+import Rounds.RoundOne;
+import Rounds.RoundTwo;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -52,24 +59,15 @@ public class TheChase {
 
                     //END OF ROUND 1 GAMEPLAY
                     //ROUND 2 GAMEPLAY
-                    RoundTwo round2 = new RoundTwo(players.getPlayerCash());
-                    round2.playerOfferChoice();
-                    round2.makeQuestionsList();
-                    int wonLost = round2.startRound();
-                    players.setPlayerCash(round2.getMoneyRound2());
+                    Round round2 = new RoundTwo(players);
+                    boolean wonLost = round2.startRound();
 
-                    switch (wonLost) {
-                        case 0:
-                            LoseMessage lm = new LoseMessage();
-                            lm.printLoseMessage();
-                            break;
-                        case 1:
-                            wm = new WinMessage(players.getPlayerCash(), 2);
-                            wm.printWinRoundMessage();
-                            break;
-                        default:
-                            System.out.println("Error in Round 2 return.");
-                            break;
+                    if (wonLost) {
+                        LoseMessage lm = new LoseMessage();
+                        lm.printLoseMessage();
+                    } else {
+                        wm = new WinMessage(players.getPlayerCash(), 2);
+                        wm.printWinRoundMessage();
                     }
                     //END OF ROUND 2 GAMEPLAY
 

@@ -1,4 +1,4 @@
-
+package Messages;
 
 /**
  *
@@ -9,7 +9,7 @@ public class WinMessage {
     private final int ROUNDNUMBER;
     
     /**
-     * Constructor for WinMessage object.
+     * Constructor for Messages.WinMessage object.
      * 
      * @param cashWon     the amount of cash the player won from the round
      * @param roundNumber the round they won
@@ -81,7 +81,7 @@ public class WinMessage {
     }
     
     //adds the player's stats to the stats file
-    //public void addStats(Players players){
+    //public void addStats(Rounds.Players players){
         
     //}
 }

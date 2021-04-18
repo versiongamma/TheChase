@@ -1,8 +1,8 @@
+package Rounds;
+
 import Questions.LongFormQuestion;
-import Questions.Question;
 
 import java.awt.Toolkit;
-import java.io.IOException;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -13,7 +13,7 @@ import java.util.TimerTask;
  * that amount of time to answer as many long answer question correctly they can
  * in that time period
  */
-public class RoundOne {
+public class RoundOne implements Round {
 
     private static String playerAnswer;
     private static Players players;
@@ -66,7 +66,7 @@ public class RoundOne {
     /**
      * Sets and prints the timer and questions
      */
-    public void startRound() {
+    public boolean startRound() {
         System.out.println("Answer as many questions as you can in 1 minute! "
                 + "When the timer finishes you will have time to answer the final question.\n"
                 + "Timer starting;");
@@ -83,6 +83,7 @@ public class RoundOne {
 
             RoundOne.checkAnswer(playerAnswer, question);
         }
+        return true;
     }
 
 }
