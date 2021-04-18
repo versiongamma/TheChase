@@ -30,4 +30,6 @@ public abstract class Question {
         } catch (Exception e) { e.printStackTrace(); }
         return null;
     }
+
+    public abstract boolean equals(Question other);
 }

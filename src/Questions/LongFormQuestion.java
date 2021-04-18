@@ -20,13 +20,20 @@ public class LongFormQuestion extends Question {
 
     }
 
+    @Override
+    public boolean equals(Question other) {
+        if (!(other instanceof LongFormQuestion)) { return false; }
+        LongFormQuestion converted = (LongFormQuestion) other;
+        return this.question.equalsIgnoreCase(converted.question);
+    }
+
     /**
      *
      * @param round
      */
     public LongFormQuestion(int round) {
         StringTokenizer line;
-        StringTokenizer lines = getLines(round == 2 ? "" : "./data/long-form-questions.csv");
+        StringTokenizer lines = getLines(round == 2 ? "./data/long-form-questions2.csv" : "./data/long-form-questions.csv");
         int index = new Random().nextInt(lines.countTokens()), i = 0;
 
         while (lines.hasMoreTokens()) {
