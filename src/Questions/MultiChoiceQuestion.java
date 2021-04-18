@@ -41,11 +41,12 @@ public class MultiChoiceQuestion{
      * @return The state of the answer as a Answer type,
      */
     public Answer checkAnswer(String playerAnswer, String chaserAnswer){
-        if("ABC".contains(playerAnswer.toUpperCase()) && playerAnswer.length() == 1 ||
-           "ABC".contains(chaserAnswer.toUpperCase()) && chaserAnswer.length() == 1){
+        if((!playerAnswer.equalsIgnoreCase("A") && !playerAnswer.equalsIgnoreCase("B") 
+                && !playerAnswer.equalsIgnoreCase("C")) || (!chaserAnswer.equalsIgnoreCase("A") 
+                && !chaserAnswer.equalsIgnoreCase("B") && !chaserAnswer.equalsIgnoreCase("C"))){
             
             System.out.println("Please enter A, B, or C as your answer.");
-            return null;
+            return Answer.NEITHER;
         }
         else if(playerAnswer.equalsIgnoreCase(ANSWER) && chaserAnswer.equalsIgnoreCase(ANSWER)){
             return Answer.BOTH;

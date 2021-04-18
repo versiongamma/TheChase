@@ -36,9 +36,9 @@ public class TheChase {
                     //game starts
                     
                     System.out.println("Player name?");
-                    String player = scanner.nextLine();
+                    String player = scanner.next().trim();
                     System.out.println("Chaser name?");
-                    String chaser = scanner.nextLine();
+                    String chaser = scanner.next().trim();
                     Players players = new Players(chaser, player);
 
                     System.out.println("\n");
@@ -46,7 +46,6 @@ public class TheChase {
                     //ROUND ONE
                     RoundOne round1 = new RoundOne(" ", players);
                     round1.startRound();
-                    //This should be set to the value from Round 1
                     
                     WinMessage wm = new WinMessage(players.getPlayerCash(), 1);
                     wm.printWinRoundMessage();
@@ -57,6 +56,7 @@ public class TheChase {
                     round2.playerOfferChoice();
                     round2.makeQuestionsList();
                     int wonLost = round2.startRound();
+                    players.setPlayerCash(round2.getMoneyRound2());
 
                     switch (wonLost) {
                         case 0:
@@ -71,8 +71,6 @@ public class TheChase {
                             System.out.println("Error in Round 2 return.");
                             break;
                     }
-
-                    players.setPlayerCash(round2.getMoneyRound2());
                     //END OF ROUND 2 GAMEPLAY
 
                     //ROUND 3 GAMEPLAY

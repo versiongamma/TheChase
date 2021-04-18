@@ -140,7 +140,7 @@ public class RoundTwo {
      */
     public void makeQuestionsList() {
         try {
-            BufferedReader inStream = new BufferedReader(new FileReader("./data/multi_choice_questions.csv"));
+            BufferedReader inStream = new BufferedReader(new FileReader("./data/multi-choice-questions.csv"));
             String line = null;
 
             while ((line = inStream.readLine()) != null) {
@@ -154,8 +154,10 @@ public class RoundTwo {
             inStream.close();
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
+            System.exit(0);
         } catch (IOException e) {
             System.out.println("Error reading from file");
+            System.exit(0);
         }
     }
 
@@ -181,9 +183,9 @@ public class RoundTwo {
             while(result == null && count < this.questions.size()){
                 System.out.println("\n" + this.questions.get(count).toString());
                 System.out.println("Player answer: ");
-                playerAnswer = scanner.nextLine().trim();
+                playerAnswer = scanner.next().trim();
                 System.out.println("Chaser answer: ");
-                chaserAnswer = scanner.nextLine().trim();
+                chaserAnswer = scanner.next().trim();
                 result = this.questions.get(count).checkAnswer(playerAnswer, chaserAnswer);
 
                 switch (result) {
