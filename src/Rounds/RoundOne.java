@@ -69,15 +69,15 @@ public class RoundOne implements Round {
      *
      * @return The outcome of the round's completion (true is successful)
      */
+    @Override
     public boolean startRound() {
         Scanner scan = new Scanner(System.in);
   
         System.out.println("Answer as many questions as you can in 1 minute! "
-                + "When the timer finishes you will have time to answer the final question.\n");
+                + "Ready? \n");
 
         RoundOne roundOne = new RoundOne(60);
         System.out.println("Go!");
-
         
         //infinite method for printing questions, will end with the timer
         for (int i = 0; i < 10; i++) {
