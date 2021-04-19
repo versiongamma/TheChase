@@ -30,6 +30,7 @@ public class TheChase {
 
         int selection;
         Scanner scanner = new Scanner(System.in);
+                
         
         do {
             System.out.println("Please Choose an Option: \n"
@@ -53,6 +54,7 @@ public class TheChase {
                     //ROUND ONE
                     RoundOne round1 = new RoundOne(" ", players);
                     round1.startRound();
+                    System.out.println("Time's up!");
                     
                     WinMessage wm = new WinMessage(players.getPlayerCash(), 1);
                     wm.printWinRoundMessage();
