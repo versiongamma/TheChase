@@ -72,21 +72,24 @@ public class RoundOne implements Round {
     @Override
     public boolean startRound() {
         Scanner scan = new Scanner(System.in);
-  
-        System.out.println("Answer as many questions as you can in 1 minute! "
-                + "Ready? \n");
 
-        RoundOne roundOne = new RoundOne(60);
-        System.out.println("Go!");
-        
-        //infinite method for printing questions, will end with the timer
-        for (int i = 0; i < 10; i++) {
-            LongFormQuestion question = new LongFormQuestion(1);
-            System.out.println(question.getQuestion());
-            playerAnswer = scan.nextLine();
+        System.out.println("Answer as many questions as you can in 1 minute!\n "
+                + players.getPlayer() + ", are you ready? Enter 'y' to begin: \n");
+        String playerInput = scan.next();
 
-            RoundOne.checkAnswer(playerAnswer, question);
-        }
-        return true;
+        do {
+            RoundOne roundOne = new RoundOne(60);
+            System.out.println("Go!");
+
+            //infinite method for printing questions, will end with the timer
+            for (int i = 0; i < 10; i++) {
+                LongFormQuestion question = new LongFormQuestion(1);
+                System.out.println(question.getQuestion());
+                playerAnswer = scan.nextLine();
+
+                RoundOne.checkAnswer(playerAnswer, question);
+            }
+            return true;
+        } while (playerInput.equals("y") || playerInput.equals("Y"));
     }
 }
