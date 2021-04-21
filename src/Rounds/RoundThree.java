@@ -29,7 +29,7 @@ public class RoundThree implements Round {
     public boolean startRound() {
 
         Thread playerRound = new Thread(() -> {
-            try { sleep(1000 * 5); }
+            try { sleep(1000 * 120); }
             catch (InterruptedException e) { e.printStackTrace(); }
 
             inPlayerRound = false;
@@ -37,7 +37,7 @@ public class RoundThree implements Round {
         });
 
         Thread chaserRound = new Thread(() -> {
-            try { sleep(1000 * 5); }
+            try { sleep(1000 * 120); }
             catch (InterruptedException e) { e.printStackTrace(); }
 
             inChaserRound = false;
@@ -47,7 +47,7 @@ public class RoundThree implements Round {
 
         /** Player's round */
         System.out.println("Answer as many questions as you can in 2 minutes!\n "
-                + players.getPlayer() + ", are you ready? Enter 'enter' to begin \n");
+                + players.getPlayer() + ", are you ready? Press 'enter' to begin \n");
         scanner.nextLine();
 
         playerRound.start();
@@ -69,7 +69,7 @@ public class RoundThree implements Round {
 
         /** Chaser's round */
         System.out.println("Answer as many questions as you can in 2 minutes!\n "
-                + players.getChaser() + ", are you ready? Enter 'enter' to begin \n");
+                + players.getChaser() + ", are you ready? Press 'enter' to begin \n");
         scanner.nextLine();
 
         chaserRound.start();
@@ -131,12 +131,5 @@ public class RoundThree implements Round {
             return q;
         }
         return null;
-    }
-
-    public static void main(String[] args) {
-        Players players = new Players("","");
-        players.setPlayerCash(1000);
-        RoundThree r3 = new RoundThree(players);
-        r3.startRound();
     }
 }
