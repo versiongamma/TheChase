@@ -125,6 +125,7 @@ public class RoundOne implements Round {
             //infinite method for printing questions, will end with the timer
             for (int i = 0; i < 10; i++) {
                 System.out.println(questions.get(count));
+                System.out.print("> ");
                 if (i == 0) {
                     String temp = scan.nextLine();
                 }
