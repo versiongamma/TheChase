@@ -3,6 +3,7 @@ import Messages.WinMessage;
 import Game.Players;
 import Rounds.Round;
 import Rounds.RoundOne;
+import Rounds.RoundThree;
 import Rounds.RoundTwo;
 
 import java.io.IOException;
@@ -72,6 +73,11 @@ public class TheChase {
                     //END OF ROUND 2 GAMEPLAY
 
                     //ROUND 3 GAMEPLAY
+                    if (new RoundThree(players).startRound()) {
+                      new WinMessage(players.getPlayerCash(), 3, players).printWinRoundMessage();
+                    } else {
+                        new LoseMessage(players).printLoseMessage();
+                    }
                     //END OF ROUND 3 GAMEPLAY
                     break;
                 case 2:
