@@ -26,7 +26,7 @@ public class RoundOne implements Round {
     private static String playerAnswer;
     private static Players players;
     private static ArrayList<Questions.LongFormQuestion> questions;
-    private Random randomGenerator;
+    private Random randomNumber;
     Toolkit toolkit;
     Timer timer;
 
@@ -37,7 +37,7 @@ public class RoundOne implements Round {
      * @param players
      */
     public RoundOne(String playerAnswer, Players players) {
-        this.randomGenerator = new Random();
+        this.randomNumber = new Random();
         RoundOne.playerAnswer = playerAnswer;
         RoundOne.players = players;
         RoundOne.questions = new ArrayList<Questions.LongFormQuestion>();
@@ -64,7 +64,6 @@ public class RoundOne implements Round {
      * @param seconds the amount of time the round should last
      */
     public RoundOne(int seconds) {
-        this.randomGenerator = new Random();
         toolkit = Toolkit.getDefaultToolkit();
         timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -125,11 +124,12 @@ public class RoundOne implements Round {
 
             //infinite method for printing questions, will end with the timer
             for (int i = 0; i < 10; i++) {
-                int n = randomGenerator.nextInt(questions.size());
+                int n = randomNumber.nextInt(questions.size());
                 LongFormQuestion question = questions.get(n);
+                
                 System.out.println(question);
                 playerAnswer = scan.nextLine();
-                System.out.println(question.getQuestion());
+                
                 if (i == 0) {
                     String temp = scan.nextLine();
                 }

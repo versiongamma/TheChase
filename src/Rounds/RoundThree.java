@@ -27,7 +27,7 @@ public class RoundThree implements Round {
             ArrayList<Question> questions = new ArrayList<Question>();
             Scanner scanner = new Scanner(System.in);
             while(true) {
-                LongFormQuestion q = new LongFormQuestion(2);
+                LongFormQuestion q = new LongFormQuestion();
                 try {
                     for (Question done : questions) {
                         System.out.println(done);
