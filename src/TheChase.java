@@ -54,7 +54,7 @@ public class TheChase {
                     round1.startRound();
                     System.out.println("Time's up!");
                     
-                    WinMessage wm = new WinMessage(players.getPlayerCash(), 1);
+                    WinMessage wm = new WinMessage(players.getPlayerCash(), 1, players);
                     wm.printWinRoundMessage();
                     //END OF ROUND 1 GAMEPLAY
                     
@@ -63,10 +63,10 @@ public class TheChase {
                     boolean won = round2.startRound();
 
                     if (!won) {
-                        LoseMessage lm = new LoseMessage();
+                        LoseMessage lm = new LoseMessage(players);
                         lm.printLoseMessage();
                     } else {
-                        wm = new WinMessage(players.getPlayerCash(), 2);
+                        wm = new WinMessage(players.getPlayerCash(), 2, players);
                         wm.printWinRoundMessage();
                     }
                     //END OF ROUND 2 GAMEPLAY
