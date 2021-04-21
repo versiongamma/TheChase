@@ -85,7 +85,7 @@ public class RoundOne implements Round {
             for (int i = 0; i < 10; i++) {
                 LongFormQuestion question = new LongFormQuestion(1);
                 System.out.println(question.getQuestion());
-                playerAnswer = scan.nextLine();
+                playerAnswer = scan.next();
 
                 RoundOne.checkAnswer(playerAnswer, question);
             }
