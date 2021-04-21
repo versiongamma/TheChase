@@ -110,9 +110,9 @@ public class RoundOne implements Round {
     public boolean startRound() {
         Scanner scan = new Scanner(System.in);
         
-        //question list made and shuffled here, during gameplay use a for loop to get each question :)
         makeQuestionsList();
         Collections.shuffle(this.questions);
+        int count = 0;
         
         System.out.println("Answer as many questions as you can in 1 minute!\n "
                 + players.getPlayer() + ", are you ready? Enter 'y' to begin: \n");
@@ -120,22 +120,18 @@ public class RoundOne implements Round {
 
         do {
             RoundOne roundOne = new RoundOne(60);
-            System.out.println("Go!");
+            System.out.println("\nGo!");
 
             //infinite method for printing questions, will end with the timer
             for (int i = 0; i < 10; i++) {
-                int n = randomNumber.nextInt(questions.size());
-                LongFormQuestion question = questions.get(n);
-                
-                System.out.println(question);
-                playerAnswer = scan.nextLine();
-                
+                System.out.println(questions.get(count));
                 if (i == 0) {
                     String temp = scan.nextLine();
                 }
                 playerAnswer = scan.nextLine();
 
-                RoundOne.checkAnswer(playerAnswer, question);
+                RoundOne.checkAnswer(playerAnswer, questions.get(count));
+                count++;
             }
             return true;
 
