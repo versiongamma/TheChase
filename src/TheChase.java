@@ -80,7 +80,7 @@ public class TheChase {
                     System.out.println("Game instructions: \n"
                             + "This game has been modled of the popular quiz game show 'The Chase'. \n"
                             + "To play: enter the name of the player and then the chaser - this is a two player\n"
-                            + "game. Then follow the propmts and either try to out chase the chaser or catch the player!");
+                            + "game. Then follow the propmts and either try to out chase the chaser or catch the player!\n");
                     break;
                 case 3:
                     System.out.println("Goodbye!");
@@ -90,6 +90,6 @@ public class TheChase {
                     throw new IndexOutOfBoundsException();
             }
 
-        } while (selection == 1);
+        } while (selection == 1 || selection == 2);
     }
 }
