@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -110,7 +111,10 @@ public class RoundOne implements Round {
     @Override
     public boolean startRound() {
         Scanner scan = new Scanner(System.in);
+        
+        //question list made and shuffled here, during gameplay use a for loop to get each question :)
         makeQuestionsList();
+        Collections.shuffle(this.questions);
         
         System.out.println("Answer as many questions as you can in 1 minute!\n "
                 + players.getPlayer() + ", are you ready? Enter 'y' to begin: \n");
