@@ -26,7 +26,7 @@ public class RoundOne implements Round {
     private static String playerAnswer;
     private static Players players;
     private static ArrayList<Questions.LongFormQuestion> questions;
-    private Random randomGenerator;
+    private Random randomNumber;
     Toolkit toolkit;
     Timer timer;
 
@@ -37,7 +37,7 @@ public class RoundOne implements Round {
      * @param players
      */
     public RoundOne(String playerAnswer, Players players) {
-        this.randomGenerator = new Random();
+        this.randomNumber = new Random();
         RoundOne.playerAnswer = playerAnswer;
         RoundOne.players = players;
         RoundOne.questions = new ArrayList<Questions.LongFormQuestion>();
@@ -64,7 +64,6 @@ public class RoundOne implements Round {
      * @param seconds the amount of time the round should last
      */
     public RoundOne(int seconds) {
-        this.randomGenerator = new Random();
         toolkit = Toolkit.getDefaultToolkit();
         timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -111,9 +110,9 @@ public class RoundOne implements Round {
     public boolean startRound() {
         Scanner scan = new Scanner(System.in);
         
-        //question list made and shuffled here, during gameplay use a for loop to get each question :)
         makeQuestionsList();
         Collections.shuffle(this.questions);
+        int count = 0;
         
         System.out.println("Answer as many questions as you can in 1 minute!\n "
                 + players.getPlayer() + ", are you ready? Enter 'y' to begin: \n");
@@ -121,21 +120,18 @@ public class RoundOne implements Round {
 
         do {
             RoundOne roundOne = new RoundOne(60);
-            System.out.println("Go!");
+            System.out.println("\nGo!");
 
             //infinite method for printing questions, will end with the timer
             for (int i = 0; i < 10; i++) {
-                int n = randomGenerator.nextInt(questions.size());
-                LongFormQuestion question = questions.get(n);
-                System.out.println(question);
-                playerAnswer = scan.nextLine();
-                System.out.println(question.getQuestion());
+                System.out.println(questions.get(count));
                 if (i == 0) {
                     String temp = scan.nextLine();
                 }
                 playerAnswer = scan.nextLine();
 
-                RoundOne.checkAnswer(playerAnswer, question);
+                RoundOne.checkAnswer(playerAnswer, questions.get(count));
+                count++;
             }
             return true;
 

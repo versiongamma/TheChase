@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.StringTokenizer;
 
 /**
- * @author Matt 19076935
+ * @author Matt 19076935, Julia 19078503
  */
 public class LongFormQuestion extends Question {
 
