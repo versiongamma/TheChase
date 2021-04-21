@@ -1,54 +1,70 @@
 package Game;
 
 public class Players {
-	
-	private String chaser;
-	private String player;
-	private int playerCash;
-	private int chaserCash;
 
+    private String chaser;
+    private String player;
+    private int playerCash;
+    private int chaserCash;
+    private int playerScore;
+    private int chaserScore;
 
+    public Players(String chaser, String player) {
+        this.chaser = chaser;
+        this.player = player;
+        this.playerCash = 0;
+        this.chaserCash = 0;
+        this.playerScore = 0;
+        this.chaserScore = 0;
+    }
 
-	public Players(String chaser, String player) {
-		this.chaser = chaser;
-		this.player = player;
-		this.playerCash = 0;
-		this.chaserCash = 0;
-	}
-	
-	
-	//GETTERS AND SETTERS
-	
-	public String getChaser() {
-		return chaser;
-	}
+    //GETTERS AND SETTERS
+    public String getChaser() {
+        return chaser;
+    }
 
-	public void setChaser(String chaser) {
-		this.chaser = chaser;
-	}
+    public void setChaser(String chaser) {
+        this.chaser = chaser;
+    }
 
-	public String getPlayer() {
-		return player;
-	}
+    public String getPlayer() {
+        return player;
+    }
 
-	public void setPlayer(String player) {
-		this.player = player;
-	}
-        
-	public int getPlayerCash(){
-		return playerCash;
-	}
+    public void setPlayer(String player) {
+        this.player = player;
+    }
 
-	public int getChaserCash() {
-		return chaserCash;
-	}
+    public int getPlayerCash() {
+        return playerCash;
+    }
 
-	public void setChaserCash(int chaserCash) {
-		this.chaserCash = chaserCash;
-	}
+    public int getChaserCash() {
+        return chaserCash;
+    }
 
-    public void setPlayerCash(int playerCash){
-            this.playerCash = playerCash;
-        }
+    public void setChaserCash(int chaserCash) {
+        this.chaserCash = chaserCash;
+    }
+
+    public void setPlayerCash(int playerCash) {
+        this.playerCash = playerCash;
+    }
+
+    public int getPlayerScore() {
+        return playerScore;
+    }
+
+    public void setPlayerScore(int playerScore) {
+        this.playerScore = playerScore;
+    }
+
+    public int getChaserScore() {
+        return chaserScore;
+    }
+
+    public void setChaserScore(int chaserScore) {
+        this.chaserScore = chaserScore;
+    }
 
 }
