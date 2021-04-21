@@ -37,11 +37,10 @@ public class LongFormQuestion extends Question {
 
     /**
      * Constructs a new long question based on the stored set of questions
-     * @param round The round that the question is being generated for (2 for round 2, 1 (or anything else) for round 1)
      */
-    public LongFormQuestion(int round) {
+    public LongFormQuestion() {
         StringTokenizer line;
-        StringTokenizer lines = getLines(round == 2 ? "./data/long-form-questions2.csv" : "./data/long-form-questions.csv");
+        StringTokenizer lines = getLines("./data/long-form-questions2.csv");
         int index = new Random().nextInt(lines.countTokens()), i = 0;
 
         while (lines.hasMoreTokens()) {
