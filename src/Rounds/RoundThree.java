@@ -29,7 +29,7 @@ public class RoundThree implements Round {
     public boolean startRound() {
 
         Thread playerRound = new Thread(() -> {
-            try { sleep(1000 * 5); }
+            try { sleep(1000 * 120); }
             catch (InterruptedException e) { e.printStackTrace(); }
 
             inPlayerRound = false;
@@ -37,7 +37,7 @@ public class RoundThree implements Round {
         });
 
         Thread chaserRound = new Thread(() -> {
-            try { sleep(1000 * 5); }
+            try { sleep(1000 * 120); }
             catch (InterruptedException e) { e.printStackTrace(); }
 
             inChaserRound = false;
