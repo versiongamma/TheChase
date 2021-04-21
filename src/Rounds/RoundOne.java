@@ -2,10 +2,16 @@ package Rounds;
 
 import Game.Players;
 import Questions.LongFormQuestion;
+import Questions.MultiChoiceQuestion;
 import java.awt.Toolkit;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -71,6 +77,32 @@ public class RoundOne implements Round {
     }
 
     /**
+     * Generates a list of multi-choice questions from the provided text file.
+     */
+    public void makeQuestionsList() {
+        try {
+            BufferedReader inStream = new BufferedReader(new FileReader("./data/long-form-questions.csv"));
+            String line = null;
+
+            while ((line = inStream.readLine()) != null) {
+                StringTokenizer st = new StringTokenizer(line, "*");
+                while (st.hasMoreTokens()) {
+                    LongFormQuestion temp = new LongFormQuestion(st.nextToken(), st.nextToken());
+                    this.questions.add(temp);
+                }
+            }
+
+            inStream.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+            System.exit(0);
+        } catch (IOException e) {
+            System.out.println("Error reading from file");
+            System.exit(0);
+        }
+    }
+    
+    /**
      * Sets and prints the timer and questions
      *
      * @return The outcome of the round's completion (true is successful)
@@ -78,7 +110,8 @@ public class RoundOne implements Round {
     @Override
     public boolean startRound() {
         Scanner scan = new Scanner(System.in);
-
+        makeQuestionsList();
+        
         System.out.println("Answer as many questions as you can in 1 minute!\n "
                 + players.getPlayer() + ", are you ready? Enter 'y' to begin: \n");
         String playerInput = scan.next();

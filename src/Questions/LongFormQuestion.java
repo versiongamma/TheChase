@@ -11,6 +11,11 @@ public class LongFormQuestion extends Question {
     private String question;
     private String answer;
 
+    public LongFormQuestion(String q, String a){
+        this.question = q;
+        this.answer = a;
+    }
+    
     /**
      * Checks if an answer to a question is correct
      * @param playerAnswer The answer to check with
