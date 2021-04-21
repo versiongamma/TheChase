@@ -39,12 +39,11 @@ public class LongFormQuestion extends Question {
      * Constructs a new long question based on the stored set of questions
      */
     public LongFormQuestion() {
-        StringTokenizer line;
         StringTokenizer lines = getLines("./data/long-form-questions2.csv");
         int index = new Random().nextInt(lines.countTokens()), i = 0;
 
         while (lines.hasMoreTokens()) {
-            line = new StringTokenizer(lines.nextToken(), "*");
+            StringTokenizer line = new StringTokenizer(lines.nextToken(), "*");
 
             if (index == i) {
                 question = line.nextToken();
