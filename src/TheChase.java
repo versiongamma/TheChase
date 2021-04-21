@@ -79,6 +79,8 @@ public class TheChase {
                         new LoseMessage(players).printLoseMessage();
                     }
                     //END OF ROUND 3 GAMEPLAY
+                    
+                    System.out.println("Thanks for playing The Chase!");
                     break;
                 case 2:
                     System.out.println("Game instructions: \n"
