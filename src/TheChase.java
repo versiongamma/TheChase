@@ -19,8 +19,6 @@ public class TheChase {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        // Make this prettier to match the output style
-        // Also make sure to add in the main menu before this
 
         System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+");
         System.out.println("|            Welcome to              |");
@@ -58,8 +56,8 @@ public class TheChase {
                     
                     WinMessage wm = new WinMessage(players.getPlayerCash(), 1);
                     wm.printWinRoundMessage();
-
                     //END OF ROUND 1 GAMEPLAY
+                    
                     //ROUND 2 GAMEPLAY
                     Round round2 = new RoundTwo(players);
                     boolean won = round2.startRound();
