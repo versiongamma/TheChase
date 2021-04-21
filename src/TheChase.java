@@ -10,7 +10,10 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * Abby - 19071317 Julia - 19078503 Matt - 19076935
+ * This is the main class of the program, all the rounds come together to create
+ * the main game! Game instructions are also printed here.
+ * 
+ * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class TheChase {
 

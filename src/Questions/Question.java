@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.util.StringTokenizer;
 
 /**
- * @author Matt 19077935
+ * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public abstract class Question {
 

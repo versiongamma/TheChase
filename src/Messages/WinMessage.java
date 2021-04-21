@@ -3,8 +3,10 @@ package Messages;
 import Game.Players;
 
 /**
- *
- * @author abbyl
+ *This class prints out the winning message for the player if they beat the chaser 
+ * for each round appropriately. 
+ * 
+ * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class WinMessage {
 

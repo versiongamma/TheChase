@@ -1,5 +1,11 @@
 package Game;
 
+/**
+ * This class sets all the variables used to store information re-guarding
+ * the player and chaser, these variables are encapsulated so they are functional
+ * throughout the other classes in the program. 
+ * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
+ */
 public class Players {
 
     private String chaser;

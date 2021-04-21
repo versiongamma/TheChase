@@ -1,11 +1,10 @@
 package Questions;
 
 
-import java.util.Locale;
-
 /**
+ * This class
  *
- * @author abbyl
+ * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class MultiChoiceQuestion{
     private final String QUESTION;

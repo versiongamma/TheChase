@@ -3,8 +3,10 @@ package Messages;
 import Game.Players;
 
 /**
- *
- * @author julia
+ *This class prints out the loosing message for player if the chaser
+ * beats them in rounds two or three. 
+ * 
+ * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class LoseMessage {
 

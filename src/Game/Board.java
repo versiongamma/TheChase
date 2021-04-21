@@ -1,8 +1,11 @@
 package Game;
 
 /**
- *
- * @author abbyl
+ *This class sets the board that is seen in the second round and responds
+ * appropriately to the changes that occur in number size and colour as the round
+ * progresses. 
+ * 
+ * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class Board {
     public final String ANSI_RESET  = "\u001B[0m";

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import static java.lang.Thread.sleep;
 
 /**
- * @author Matt 19076935
+ * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class RoundThree implements Round {
     private Players players;

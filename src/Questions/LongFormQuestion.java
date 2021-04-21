@@ -4,7 +4,11 @@ import java.util.Random;
 import java.util.StringTokenizer;
 
 /**
- * @author Matt 19076935, Julia 19078503
+ * This class creates long form questions from the files of questions. It randomizes
+ * the order of the questions so its different each time it is played and also checks
+ * the answer to see if it is correct or not.
+ * 
+ * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class LongFormQuestion extends Question {
 

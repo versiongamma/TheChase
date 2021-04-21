@@ -20,6 +20,8 @@ import java.util.TimerTask;
  * Round One of the Chase! 1 Minute timer is started - then the player will have
  * that amount of time to answer as many long answer question correctly they can
  * in that time period
+ * 
+ * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class RoundOne implements Round {
 
