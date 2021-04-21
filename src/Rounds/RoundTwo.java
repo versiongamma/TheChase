@@ -222,21 +222,7 @@ public class RoundTwo implements Round{
             result = null;
             count++;
         }
-        // TODO: AT SOME POINT, THIS FUNCTION SHOULD ADD TO THE PLAYER OBJECT PASSED IN THE CONSTRUCTORS' SCORE. I'm not entirely sure when that should be, so if you could do that that'd be nice
-        /** It's effectively replacing the setting of the players cash in the main method that was happening before,
-         *  consolidating shit into this class instead of having it happen in the main method
-         *
-         *  What was in the main method before:
-         *  round2.playerOfferChoice();
-         *  round2.makeQuestionsList(); -- These 2 methods where pretty straightforward to integrate into the startRound method of this class
-         *
-         *  players.setPlayerCash(round2.getMoneyRound2()); -- It's this guy i'm not sure about, I've passed the players
-         *                                                     object into the class instead of just the money, and at
-         *                                                     some point this method should be called in here, but
-         *                                                     idk when that should be
-         *
-         * - matt
-        */
+        
         players.setPlayerCash(moneyRound2);
         return won;
     }

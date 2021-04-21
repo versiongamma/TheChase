@@ -93,9 +93,11 @@ public class RoundOne implements Round {
                 LongFormQuestion question = questions.get(n);
                 System.out.println(question);
                 playerAnswer = scan.nextLine();
+                System.out.println(question.getQuestion());
                 if (i == 0) {
                     String temp = scan.nextLine();
                 }
+                playerAnswer = scan.nextLine();
 
                 RoundOne.checkAnswer(playerAnswer, question);
             }
