@@ -237,6 +237,7 @@ public class RoundTwo implements Round{
          *
          * - matt
         */
+        players.setPlayerCash(moneyRound2);
         return won;
     }
 }

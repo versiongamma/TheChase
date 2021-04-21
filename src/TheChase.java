@@ -60,9 +60,9 @@ public class TheChase {
                     
                     //ROUND 2 GAMEPLAY
                     Round round2 = new RoundTwo(players);
-                    boolean wonLost = round2.startRound();
+                    boolean won = round2.startRound();
 
-                    if (wonLost) {
+                    if (!won) {
                         LoseMessage lm = new LoseMessage();
                         lm.printLoseMessage();
                     } else {
