@@ -78,7 +78,7 @@ public class RoundOne implements Round {
     }
 
     /**
-     * Generates a list of multi-choice questions from the provided text file.
+     * Generates a list of long-form questions from the provided text file.
      */
     public void makeQuestionsList() {
         try {
