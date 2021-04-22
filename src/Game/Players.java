@@ -23,7 +23,6 @@ public class Players {
 	public void write() {
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter("./data/players.data", true));
-			System.out.println(String.format("%s*%s*%s", getPlayer(), getPlayerCash(), getChaserCash()));
 			writer.write(String.format("\n%s*%s*%s", getPlayer(), getPlayerCash(), getChaserCash()));
 			writer.close();
 		} catch (IOException e) {
