@@ -38,7 +38,9 @@ public class TheChase {
             System.out.println("Please Choose an Option: \n"
                     + "1. Play The Chase \n"
                     + "2. How to Play \n"
-                    + "3. Exit");
+                    + "3. View Previous Games\n"
+                    + "4. Exit");
+            System.out.print("> ");
             selection = scanner.nextInt();
 
             switch (selection) {
@@ -82,6 +84,7 @@ public class TheChase {
                         new LoseMessage(players).printLoseMessage();
                     }
                     //END OF ROUND 3 GAMEPLAY
+                    players.write();
                     
                     System.out.println("Thanks for playing The Chase!");
                     break;
@@ -92,13 +95,17 @@ public class TheChase {
                             + "game. Then follow the propmts and either try to out chase the chaser or catch the player!\n");
                     break;
                 case 3:
+                    System.out.println(Players.read());
+                    break;
+                case 4:
                     System.out.println("Goodbye!");
                     System.exit(0);
                     break;
                 default:
-                    throw new IndexOutOfBoundsException();
+                    System.out.println("Invalid input! Please enter either '1', '2', '3', or '4");
+                    continue;
             }
 
-        } while (selection == 1 || selection == 2);
+        } while (selection != 4);
     }
 }
