@@ -17,9 +17,13 @@ public class RoundThree implements Round {
     private Players players;
     private ArrayList<Question> questions = new ArrayList<Question>();
     private boolean inPlayerRound = true, inChaserRound = false;
+    private int playerPosition;
+    private int chaserPosition;
 
     public RoundThree(Players players) {
         this.players = players;
+        this.playerPosition = 0;
+        this.chaserPosition = 0;
     }
 
     /**
@@ -59,7 +63,8 @@ public class RoundThree implements Round {
 
             if (q.checkAnswer(scanner.nextLine())) {
                 System.out.println("Correct!");
-                players.setPlayerCash(players.getPlayerCash() + 1000);
+                playerPosition++;
+                //players.setPlayerCash(players.getPlayerCash() + 1000);
             } else {
                 System.out.println(String.format("Incorrect! The correct answer was: %s", q.getAnswer()));
             }
@@ -83,13 +88,15 @@ public class RoundThree implements Round {
 
             if (q.checkAnswer(scanner.nextLine())) {
                 System.out.println("Correct!");
-                players.setChaserCash(players.getChaserCash() + 1000);
+                chaserPosition++;
+                //players.setChaserCash(players.getChaserCash() + 1000);
             } else {
                 System.out.println(String.format("Incorrect! Now, %s, try and guess!", players.getPlayer()));
                 System.out.print(">");
 
                 if (q.checkAnswer(scanner.nextLine())) {
-                    players.setChaserCash(players.getChaserCash() > 0 ? players.getChaserCash() - 1000 : 0);
+                    //players.setChaserCash(players.getChaserCash() > 0 ? players.getChaserCash() - 1000 : 0);
+                    players.setChaserCash(players.getChaserCash() > 0 ? chaserPosition-- : 0);
                     System.out.println("Correct!");
                 } else {
                     System.out.println(String.format("Incorrect! The correct answer was: %s", q.getAnswer()));
@@ -97,15 +104,20 @@ public class RoundThree implements Round {
             }
 
             System.out.println(
+                    //String.format(
+                            //"\n%s's Cash: $%d\n%s's Cash: %d\n",
+                            //players.getPlayer(), players.getPlayerCash(),
+                            //players.getChaser(), players.getChaserCash()));
                     String.format(
-                            "\n%s's Cash: $%d\n%s's Cash: %d\n",
-                            players.getPlayer(), players.getPlayerCash(),
-                            players.getChaser(), players.getChaserCash()));
+                            "\n%s's Position: %d\n%s's Position: %d\n",
+                            players.getPlayer(), playerPosition,
+                            players.getChaser(), chaserPosition));
         }
 
         System.out.println("Times Up!");
 
-        return players.getPlayerCash() > players.getChaserCash();
+        //return players.getPlayerCash() > players.getChaserCash();
+        return playerPosition > chaserPosition;
     }
 
     /**
