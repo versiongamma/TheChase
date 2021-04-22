@@ -1,3 +1,4 @@
+
 import Messages.LoseMessage;
 import Messages.WinMessage;
 import Game.Players;
@@ -12,7 +13,7 @@ import java.util.Scanner;
 /**
  * This is the main class of the program, all the rounds come together to create
  * the main game! Game instructions are also printed here.
- * 
+ *
  * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class TheChase {
@@ -32,8 +33,7 @@ public class TheChase {
 
         int selection;
         Scanner scanner = new Scanner(System.in);
-                
-        
+
         do {
             System.out.println("Please Choose an Option: \n"
                     + "1. Play The Chase \n"
@@ -46,7 +46,7 @@ public class TheChase {
             switch (selection) {
                 case 1:
                     //game starts
-                    
+
                     System.out.println("Player name?");
                     String player = scanner.next().trim();
                     System.out.println("Chaser name?");
@@ -59,11 +59,11 @@ public class TheChase {
                     RoundOne round1 = new RoundOne(" ", players);
                     round1.startRound();
                     System.out.println("Time's up!");
-                    
+
                     WinMessage wm = new WinMessage(players.getPlayerCash(), 1, players);
                     wm.printWinRoundMessage();
                     //END OF ROUND 1 GAMEPLAY
-                    
+
                     //ROUND 2 GAMEPLAY
                     Round round2 = new RoundTwo(players);
                     boolean won = round2.startRound();
@@ -74,18 +74,17 @@ public class TheChase {
                     } else {
                         wm = new WinMessage(players.getPlayerCash(), 2, players);
                         wm.printWinRoundMessage();
-                    }
-                    //END OF ROUND 2 GAMEPLAY
 
-                    //ROUND 3 GAMEPLAY
-                    if (new RoundThree(players).startRound()) {
-                      new WinMessage(players.getPlayerCash(), 3, players).printWinRoundMessage();
-                    } else {
-                        new LoseMessage(players).printLoseMessage();
+                        //ROUND 3 GAMEPLAY
+                        if (new RoundThree(players).startRound()) {
+                            new WinMessage(players.getPlayerCash(), 3, players).printWinRoundMessage();
+                        } else {
+                            new LoseMessage(players).printLoseMessage();
+                        }
+                        //END OF ROUND 3 GAMEPLAY
                     }
-                    //END OF ROUND 3 GAMEPLAY
                     players.write();
-                    
+
                     System.out.println("Thanks for playing The Chase!");
                     break;
                 case 2:

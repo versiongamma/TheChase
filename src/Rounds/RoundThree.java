@@ -117,6 +117,7 @@ public class RoundThree implements Round {
         System.out.println("Times Up!");
 
         //return players.getPlayerCash() > players.getChaserCash();
+        players.setChaserCash(1000*chaserPosition);
         return playerPosition > chaserPosition;
     }
 
