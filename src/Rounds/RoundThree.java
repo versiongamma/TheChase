@@ -89,13 +89,11 @@ public class RoundThree implements Round {
             if (q.checkAnswer(scanner.nextLine())) {
                 System.out.println("Correct!");
                 chaserPosition++;
-                //players.setChaserCash(players.getChaserCash() + 1000);
             } else {
                 System.out.println(String.format("Incorrect! Now, %s, try and guess!", players.getPlayer()));
                 System.out.print(">");
 
                 if (q.checkAnswer(scanner.nextLine())) {
-                    //players.setChaserCash(players.getChaserCash() > 0 ? players.getChaserCash() - 1000 : 0);
                     players.setChaserCash(players.getChaserCash() > 0 ? chaserPosition-- : 0);
                     System.out.println("Correct!");
                 } else {
@@ -104,10 +102,6 @@ public class RoundThree implements Round {
             }
 
             System.out.println(
-                    //String.format(
-                            //"\n%s's Cash: $%d\n%s's Cash: %d\n",
-                            //players.getPlayer(), players.getPlayerCash(),
-                            //players.getChaser(), players.getChaserCash()));
                     String.format(
                             "\n%s's Position: %d\n%s's Position: %d\n",
                             players.getPlayer(), playerPosition,
@@ -116,7 +110,6 @@ public class RoundThree implements Round {
 
         System.out.println("Times Up!");
 
-        //return players.getPlayerCash() > players.getChaserCash();
         players.setChaserCash(1000*chaserPosition);
         return playerPosition > chaserPosition;
     }
