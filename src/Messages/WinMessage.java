@@ -3,9 +3,9 @@ package Messages;
 import Game.Players;
 
 /**
- *This class prints out the winning message for the player if they beat the chaser 
- * for each round appropriately. 
- * 
+ * This class prints out the winning message for the player if they beat the
+ * chaser for each round appropriately.
+ *
  * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class WinMessage {
@@ -81,7 +81,7 @@ public class WinMessage {
             int spaces = lineLength - 2 - moneyStr.length();
             int lSpaces = spaces / 2;
             int rSpaces = (spaces % 2) == 0 ? lSpaces : lSpaces + 1;
-            
+
             String nameStr = "Well done " + players.getPlayer() + "!";
             int namespaces = lineLength - 2 - nameStr.length();
             int namelSpaces = namespaces / 2;

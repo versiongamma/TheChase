@@ -17,7 +17,7 @@ import java.util.Collections;
  *
  * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
-public class RoundTwo implements Round{
+public class RoundTwo implements Round {
 
     private final int MONEYROUND1;
     private Board board;
@@ -27,7 +27,7 @@ public class RoundTwo implements Round{
 
     /**
      * Constructor for a Round2 object.
-     * 
+     *
      * @param players the money the player won from the first round
      */
     public RoundTwo(Players players) {
@@ -37,19 +37,19 @@ public class RoundTwo implements Round{
         this.moneyRound2 = 0;
         this.players = players;
     }
-    
+
     /**
      * Returns the integer of the money the player chose in round 2.
-     * 
+     *
      * @return moneyRound2 the money value the player chose in round 2
      */
     public int getMoneyRound2() {
         return moneyRound2;
     }
-    
+
     /**
      * Returns a high offer of the chaser's choice.
-     * 
+     *
      * @return high the high offer
      */
     public int highOffer() {
@@ -76,10 +76,10 @@ public class RoundTwo implements Round{
 
         return high;
     }
-    
+
     /**
      * Returns a low offer of the chaser's choice.
-     * 
+     *
      * @return low the low offer
      */
     public int lowOffer() {
@@ -107,7 +107,7 @@ public class RoundTwo implements Round{
     }
 
     /**
-     * Displays the high and low offers to the player, and prompts them to make 
+     * Displays the high and low offers to the player, and prompts them to make
      * a choice. Also sets up the board for the start of game play.
      */
     public void playerOfferChoice() {
@@ -134,7 +134,7 @@ public class RoundTwo implements Round{
                 System.out.println("Please enter your choice as an integer.");
             }
         }
-        
+
         board.setMoneyChoice(this.getMoneyRound2());
         board.setPlayerPosition(this.getMoneyRound2());
     }
@@ -166,10 +166,11 @@ public class RoundTwo implements Round{
     }
 
     /**
-     * Executes game play of round 2. Displays questions in a random order, prompts
-     * player and chaser for answers and calls method to evaluate answers. At completion
-     * of game play, returns true if player won and false if player lost.
-     * 
+     * Executes game play of round 2. Displays questions in a random order,
+     * prompts player and chaser for answers and calls method to evaluate
+     * answers. At completion of game play, returns true if player won and false
+     * if player lost.
+     *
      * @return returns true if player won, returns false if player lost
      */
     public boolean startRound() {
@@ -187,7 +188,7 @@ public class RoundTwo implements Round{
         Collections.shuffle(this.questions);
 
         while (!won && !lost) {
-            while(result == null && count < this.questions.size()){
+            while (result == null && count < this.questions.size()) {
                 System.out.println("\n" + this.questions.get(count).toString());
                 System.out.println("Player answer: ");
                 playerAnswer = scanner.next().trim();
@@ -210,7 +211,6 @@ public class RoundTwo implements Round{
                         break;
                 }
             }
-            //
 
             if (this.board.getPlayerPosition() == 9) {
                 won = true;
@@ -222,7 +222,7 @@ public class RoundTwo implements Round{
             result = null;
             count++;
         }
-        
+
         players.setPlayerCash(moneyRound2);
         return won;
     }

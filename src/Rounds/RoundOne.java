@@ -2,19 +2,14 @@ package Rounds;
 
 import Game.Players;
 import Questions.LongFormQuestion;
-import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import static java.lang.Thread.sleep;
 
 /**
@@ -22,7 +17,7 @@ import static java.lang.Thread.sleep;
  * Round One of the Chase! 1 Minute timer is started - then the player will have
  * that amount of time to answer as many long answer question correctly they can
  * in that time period
- * 
+ *
  * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class RoundOne implements Round {
@@ -84,7 +79,7 @@ public class RoundOne implements Round {
             System.exit(0);
         }
     }
-    
+
     /**
      * Sets and prints the timer and questions
      *
@@ -93,12 +88,11 @@ public class RoundOne implements Round {
     @Override
     public boolean startRound() {
         Scanner scan = new Scanner(System.in);
-        
+
         makeQuestionsList();
         Collections.shuffle(this.questions);
         int count = 0;
 
-        
         System.out.println("Answer as many questions as you can in 1 minute!\n"
                 + players.getPlayer() + ", are you ready? Press 'enter' to begin");
         String playerInput = scan.nextLine();
@@ -106,8 +100,11 @@ public class RoundOne implements Round {
         System.out.println("\nGo!");
 
         Thread roundStop = new Thread(() -> {
-            try { sleep(1000 * 60); }
-            catch (InterruptedException e) { e.printStackTrace(); }
+            try {
+                sleep(1000 * 60);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
             inRound = false;
         });

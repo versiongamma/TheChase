@@ -3,19 +3,26 @@ package Messages;
 import Game.Players;
 
 /**
- *This class prints out the loosing message for player if the chaser
- * beats them in rounds two or three. 
- * 
+ * This class prints out the loosing message for player if the chaser beats them
+ * in rounds two or three.
+ *
  * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class LoseMessage {
 
     Players players;
 
+    /**
+     * Constructor for losemessage
+     * @param players players object
+     */
     public LoseMessage(Players players) {
         this.players = players;
     }
 
+    /**
+     * Prints out the lose statement on the console
+     */
     public void printLoseMessage() {
         String chaserStr = "Well done " + players.getChaser() + "!";
         int lineLength = 38;
@@ -37,8 +44,8 @@ public class LoseMessage {
 
         System.out.println("|    You caught the player and won!  |");
         System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n");
-        
-        String playerStr = players.getPlayer()+"'s money lost: $" + players.getPlayerCash();
+
+        String playerStr = players.getPlayer() + "'s money lost: $" + players.getPlayerCash();
         int playerspaces = lineLength - 2 - playerStr.length();
         int playerlSpaces = playerspaces / 2;
         int playerSpaces = (playerspaces % 2) == 0 ? playerlSpaces : playerlSpaces + 1;

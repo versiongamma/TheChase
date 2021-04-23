@@ -8,13 +8,17 @@ import java.util.StringTokenizer;
  */
 public abstract class Question {
 
-    /** Check if the answer is correct
+    /**
+     * Check if the answer is correct
+     *
      * @param playerAnswer The guess of the user
      * @return Boolean statement representing if the answer was correct or not
      */
     public abstract boolean checkAnswer(String playerAnswer);
 
-    /** Gets the data from a given file
+    /**
+     * Gets the data from a given file
+     *
      * @param path The path of the file to get the data from
      * @return StringTokenizer of each line in the file
      */
@@ -30,7 +34,9 @@ public abstract class Question {
             }
 
             return new StringTokenizer(file.toString(), "\n");
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

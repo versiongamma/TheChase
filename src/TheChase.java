@@ -6,7 +6,6 @@ import Rounds.Round;
 import Rounds.RoundOne;
 import Rounds.RoundThree;
 import Rounds.RoundTwo;
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -74,6 +73,7 @@ public class TheChase {
                     } else {
                         wm = new WinMessage(players.getPlayerCash(), 2, players);
                         wm.printWinRoundMessage();
+                        //END OF ROUND 2 GAMEPLAY
 
                         //ROUND 3 GAMEPLAY
                         if (new RoundThree(players).startRound()) {

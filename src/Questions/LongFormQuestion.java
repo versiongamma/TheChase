@@ -4,10 +4,10 @@ import java.util.Random;
 import java.util.StringTokenizer;
 
 /**
- * This class creates long form questions from the files of questions. It randomizes
- * the order of the questions so its different each time it is played and also checks
- * the answer to see if it is correct or not.
- * 
+ * This class creates long form questions from the files of questions. It
+ * randomizes the order of the questions so its different each time it is played
+ * and also checks the answer to see if it is correct or not.
+ *
  * @authors Abby - 19071317 Julia - 19078503 Matt - 19076935
  */
 public class LongFormQuestion extends Question {
@@ -15,13 +15,14 @@ public class LongFormQuestion extends Question {
     private String question;
     private String answer;
 
-    public LongFormQuestion(String q, String a){
+    public LongFormQuestion(String q, String a) {
         this.question = q;
         this.answer = a;
     }
-    
+
     /**
      * Checks if an answer to a question is correct
+     *
      * @param playerAnswer The answer to check with
      * @return If the answer is correct
      */
@@ -34,7 +35,9 @@ public class LongFormQuestion extends Question {
 
     @Override
     public boolean equals(Question other) {
-        if (!(other instanceof LongFormQuestion)) { return false; }
+        if (!(other instanceof LongFormQuestion)) {
+            return false;
+        }
         LongFormQuestion converted = (LongFormQuestion) other;
         return this.question.equalsIgnoreCase(converted.question);
     }
@@ -59,8 +62,8 @@ public class LongFormQuestion extends Question {
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     @Override
     public String toString() {
