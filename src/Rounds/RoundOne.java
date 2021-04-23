@@ -117,7 +117,7 @@ public class RoundOne implements Round {
         int count = 0;
         
         System.out.println("Answer as many questions as you can in 1 minute!\n "
-                + players.getPlayer() + ", are you ready? Press 'enter' to begin \n");
+                + players.getPlayer() + ", are you ready? Enter 'y' to begin \n");
         String playerInput = scan.next();
 
         do {
