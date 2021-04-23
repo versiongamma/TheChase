@@ -117,7 +117,7 @@ public class RoundOne implements Round {
         int count = 0;
         
         System.out.println("Answer as many questions as you can in 1 minute!\n "
-                + players.getPlayer() + ", are you ready? Enter 'y' to begin: \n");
+                + players.getPlayer() + ", are you ready? Press 'enter' to begin \n");
         String playerInput = scan.next();
 
         do {
@@ -125,7 +125,7 @@ public class RoundOne implements Round {
             System.out.println("\nGo!");
 
             //infinite method for printing questions, will end with the timer
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < questions.size(); i++) {
                 System.out.println(questions.get(count));
                 System.out.print("> ");
                 if (i == 0) {
