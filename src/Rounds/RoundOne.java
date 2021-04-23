@@ -15,6 +15,8 @@ import java.util.StringTokenizer;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static java.lang.Thread.sleep;
+
 /**
  *
  * Round One of the Chase! 1 Minute timer is started - then the player will have
@@ -28,9 +30,7 @@ public class RoundOne implements Round {
     private static String playerAnswer;
     private static Players players;
     private static ArrayList<Questions.LongFormQuestion> questions;
-    private Random randomNumber;
-    Toolkit toolkit;
-    Timer timer;
+    private boolean inRound = true;
 
     /**
      * Default round constructor
@@ -39,7 +39,6 @@ public class RoundOne implements Round {
      * @param players
      */
     public RoundOne(String playerAnswer, Players players) {
-        this.randomNumber = new Random();
         RoundOne.playerAnswer = playerAnswer;
         RoundOne.players = players;
         RoundOne.questions = new ArrayList<Questions.LongFormQuestion>();
@@ -58,23 +57,6 @@ public class RoundOne implements Round {
         } else {
             System.out.println(String.format("Incorrect! The correct answer was: %s", question.getAnswer()));
         }
-    }
-
-    /**
-     * Creates a new round
-     *
-     * @param seconds the amount of time the round should last
-     */
-    public RoundOne(int seconds) {
-        toolkit = Toolkit.getDefaultToolkit();
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-
-                timer.cancel();
-            }
-        }, seconds * 1000);
     }
 
     /**
@@ -115,29 +97,34 @@ public class RoundOne implements Round {
         makeQuestionsList();
         Collections.shuffle(this.questions);
         int count = 0;
+
         
-        System.out.println("Answer as many questions as you can in 1 minute!\n "
-                + players.getPlayer() + ", are you ready? Press 'enter' to begin \n");
-        String playerInput = scan.next();
+        System.out.println("Answer as many questions as you can in 1 minute!\n"
+                + players.getPlayer() + ", are you ready? Press 'enter' to begin");
+        String playerInput = scan.nextLine();
 
-        do {
-            RoundOne roundOne = new RoundOne(60);
-            System.out.println("\nGo!");
+        System.out.println("\nGo!");
 
-            //infinite method for printing questions, will end with the timer
-            for (int i = 0; i < questions.size(); i++) {
-                System.out.println(questions.get(count));
-                System.out.print("> ");
-                if (i == 0) {
-                    String temp = scan.nextLine();
-                }
-                playerAnswer = scan.nextLine();
+        Thread roundStop = new Thread(() -> {
+            try { sleep(1000 * 60); }
+            catch (InterruptedException e) { e.printStackTrace(); }
 
-                RoundOne.checkAnswer(playerAnswer, questions.get(count));
-                count++;
-            }
-            return true;
+            inRound = false;
+        });
 
-        } while (playerInput.equals("y") || playerInput.equals("Y"));
+        roundStop.start();
+
+        //infinite method for printing questions, will end with the timer
+        while (inRound) {
+            System.out.println(questions.get(count));
+            System.out.print("> ");
+
+            playerAnswer = scan.nextLine();
+
+            RoundOne.checkAnswer(playerAnswer, questions.get(count));
+            count++;
+        }
+        return true;
+
     }
 }
